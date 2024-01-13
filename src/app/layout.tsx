@@ -1,5 +1,3 @@
-"use client";
-
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { Inter as FontSans } from "next/font/google";
@@ -9,7 +7,7 @@ import Provider from "./provider";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
