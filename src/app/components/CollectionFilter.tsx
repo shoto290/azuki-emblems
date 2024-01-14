@@ -100,8 +100,8 @@ export default function CollectionFilter({
                             <Image
                               src={emblem.icon}
                               alt={emblem.name}
-                              height={50}
-                              width={50}
+                              height={40}
+                              width={40}
                             />
                           )}
                           {emblem.name}

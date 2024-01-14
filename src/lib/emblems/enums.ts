@@ -10,4 +10,5 @@ export enum EmblemId {
   ELEMENTAL = "elemental",
   SHONEN = "shonen",
   ANIMAL = "animal",
+  GOLD = "gold",
 }

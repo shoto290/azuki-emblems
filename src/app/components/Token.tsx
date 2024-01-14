@@ -49,13 +49,15 @@ export default function Token({ token, market }: TokenProps) {
       </div>
       <div className="w-full gap-0 flex flex-col items-center">
         <p className="font-bold">{token.name}</p>
-        <span className="flex gap-1 items-center">
-          <img className="h-[16px]" src={market.floorAsk.source.icon} />
-          <p>Ξ{market.floorAsk.price.amount.decimal}</p>
-          <p className="text-white/50">
-            (${Math.round(market.floorAsk.price.amount.usd)})
-          </p>
-        </span>
+        {market.floorAsk.price && (
+          <span className="flex gap-1 items-center">
+            <img className="h-[16px]" src={market.floorAsk.source.icon} />
+            <p>Ξ{market.floorAsk.price.amount.decimal}</p>
+            <p className="text-white/50">
+              (${Math.round(market.floorAsk.price.amount.usd)})
+            </p>
+          </span>
+        )}
       </div>
     </motion.div>
   );
