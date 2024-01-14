@@ -16,15 +16,21 @@ interface TokenProps {
 
 export default function Token({ token, market }: TokenProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
+    <div
       onClick={() => {
         window.open(market.floorAsk.source.url);
       }}
       className="w-full flex gap-2 flex-col items-center p-2 hover:cursor-pointer"
     >
-      <div className="flex justify-end">
+      <motion.div
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{
+          type: "easeInOut",
+          duration: 0.1,
+        }}
+        className="flex justify-end"
+      >
         {token.isFlagged && (
           <div className="absolute m-2">
             <TooltipProvider delayDuration={0}>
@@ -46,7 +52,7 @@ export default function Token({ token, market }: TokenProps) {
           width={800}
           height={800}
         />
-      </div>
+      </motion.div>
       <div className="w-full gap-0 flex flex-col items-center">
         <p className="font-bold">{token.name}</p>
         {market.floorAsk.price && (
@@ -59,6 +65,6 @@ export default function Token({ token, market }: TokenProps) {
           </span>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

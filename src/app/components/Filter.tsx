@@ -1,6 +1,5 @@
 "use client";
 
-import { CheckIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -13,6 +12,7 @@ import {
 } from "@/lib/ui/components/ui/command";
 import { Emblem } from "@/lib/emblems/types";
 import { emblems } from "@/lib/emblems/constants";
+import { ChevronRightIcon } from "lucide-react";
 
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
@@ -48,7 +48,7 @@ export default function Filter({
             <p className="font-bold text-stone-200">
               {emblem.name.toUpperCase()}
             </p>
-            <CheckIcon
+            <ChevronRightIcon
               className={cn(
                 "ml-auto h-4 w-4",
                 selectedEmblem.name === emblem.name
