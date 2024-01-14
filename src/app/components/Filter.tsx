@@ -13,6 +13,7 @@ import {
 import { Emblem } from "@/lib/emblems/types";
 import { emblems } from "@/lib/emblems/constants";
 import { ChevronRightIcon } from "lucide-react";
+import { CommandList } from "cmdk";
 
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
@@ -27,7 +28,7 @@ export default function Filter({
     <Command>
       <CommandInput placeholder="Search emblem..." className="h-9" />
       <CommandEmpty>No emblem found.</CommandEmpty>
-      <CommandGroup>
+      <CommandGroup className="overflow-auto">
         {emblems.map((emblem) => (
           <CommandItem
             value={emblem.name}

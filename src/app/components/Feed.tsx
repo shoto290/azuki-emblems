@@ -12,7 +12,7 @@ export default function Feed() {
 
   return (
     <div className="flex gap-1">
-      <div className="w-[300px] fixed h-fit flex flex-col items-center mb-4 p-2 gap-4">
+      <div className="w-[300px] h-[calc(97dvh)] fixed flex flex-col items-center mb-4 p-2 gap-4">
         <ConnectKitButton />
         <Filter
           setSelectedEmblem={setSelectedEmblem}
