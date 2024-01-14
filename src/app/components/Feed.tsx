@@ -1,11 +1,11 @@
 "use client";
 
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import useCollections from "../hooks/useCollections";
 import Filter from "./Filter";
 import Token from "./Token";
 import TokenSkeleton from "./TokenSkeleton";
 import { ConnectKitButton } from "connectkit";
+import Footer from "./Footer";
 
 export default function Feed() {
   const { collections, setSelectedEmblem, selectedEmblem } = useCollections();
@@ -18,6 +18,7 @@ export default function Feed() {
           setSelectedEmblem={setSelectedEmblem}
           selectedEmblem={selectedEmblem}
         />
+        <Footer />
       </div>
       <div className="ml-[300px] w-full grid grid-cols-1 xs:grid-col-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {!collections &&

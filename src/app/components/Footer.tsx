@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="w-full py-10 flex justify-center">
+    <div className="w-full flex justify-center">
       Build by{" "}
       <a
         target="_blank"
@@ -9,7 +9,10 @@ export default function Footer() {
       >
         Shoto
       </a>{" "}
-      for the <p className="font-bold mx-1">Garden</p>
+      for the{" "}
+      <a className="font-bold mx-1" href="https://azuki.com/" target="_blank">
+        Garden
+      </a>
     </div>
   );
 }
