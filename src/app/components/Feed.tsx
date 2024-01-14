@@ -9,14 +9,14 @@ export default function Feed() {
   const { collections, setSelectedEmblem, selectedEmblem } = useCollections();
 
   return (
-    <div>
-      <div className="w-full flex flex-col items-center mb-4">
+    <div className="flex gap-1">
+      <div className="w-[300px] h-fit flex flex-col items-center mb-4 p-2">
         <Filter
           setSelectedEmblem={setSelectedEmblem}
           selectedEmblem={selectedEmblem}
         />
       </div>
-      <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6">
+      <div className="w-full grid grid-cols-1 xs:grid-col-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {!collections &&
           [...Array(20)].map((_, i) => <TokenSkeleton key={i} />)}
         {collections?.map((collection) => (
