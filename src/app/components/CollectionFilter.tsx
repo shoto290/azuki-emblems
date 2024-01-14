@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Image from "next/image";
 
@@ -27,9 +27,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/lib/ui/components/ui/popover";
-import { collections } from "@/constants";
-import { Filter } from "@/types";
-import { useEffect, useState } from "react";
+import { Emblem } from "@/lib/emblems/types";
+import { emblems } from "@/lib/emblems/constants";
 
 const FormSchema = z.object({
   language: z.string({
@@ -38,13 +37,13 @@ const FormSchema = z.object({
 });
 
 interface CollectionFilterProps {
-  selectedBadge: Filter;
-  setSelectedBadge: (filter: Filter) => void;
+  selectedEmblem: Emblem;
+  setSelectedEmblem: (emblem: Emblem) => void;
 }
 
 export default function CollectionFilter({
-  selectedBadge,
-  setSelectedBadge,
+  selectedEmblem,
+  setSelectedEmblem,
 }: CollectionFilterProps) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -66,15 +65,15 @@ export default function CollectionFilter({
                       className={cn("w-[200px] justify-between")}
                     >
                       <div className="flex gap-2 items-center">
-                        {selectedBadge.icon && (
+                        {selectedEmblem.icon && (
                           <Image
-                            src={selectedBadge.icon}
-                            alt={selectedBadge.name}
+                            src={selectedEmblem.icon}
+                            alt={selectedEmblem.name}
                             height={30}
                             width={30}
                           />
                         )}
-                        {selectedBadge.name}
+                        {selectedEmblem.name}
                       </div>
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
@@ -88,28 +87,28 @@ export default function CollectionFilter({
                     />
                     <CommandEmpty>No emblem found.</CommandEmpty>
                     <CommandGroup>
-                      {collections.map((collection) => (
+                      {emblems.map((emblem) => (
                         <CommandItem
-                          value={collection.name}
-                          key={collection.name}
+                          value={emblem.name}
+                          key={emblem.name}
                           onSelect={() => {
-                            setSelectedBadge(collection);
+                            setSelectedEmblem(emblem);
                           }}
                           className="flex gap-2"
                         >
-                          {collection.icon && (
+                          {emblem.icon && (
                             <Image
-                              src={collection.icon}
-                              alt={collection.name}
+                              src={emblem.icon}
+                              alt={emblem.name}
                               height={50}
                               width={50}
                             />
                           )}
-                          {collection.name}
+                          {emblem.name}
                           <CheckIcon
                             className={cn(
                               "ml-auto h-4 w-4",
-                              selectedBadge.name === collection.name
+                              selectedEmblem.name === emblem.name
                                 ? "opacity-100"
                                 : "opacity-0"
                             )}

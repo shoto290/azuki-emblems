@@ -6,14 +6,14 @@ import Token from "./Token";
 import TokenSkeleton from "./TokenSkeleton";
 
 export default function Feed() {
-  const { collections, setSelectedBadge, selectedBadge } = useCollections();
+  const { collections, setSelectedEmblem, selectedEmblem } = useCollections();
 
   return (
     <div>
       <div className="w-full flex flex-col items-center mb-4">
         <Filter
-          setSelectedBadge={setSelectedBadge}
-          selectedBadge={selectedBadge}
+          setSelectedEmblem={setSelectedEmblem}
+          selectedEmblem={selectedEmblem}
         />
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6">

@@ -1,5 +1,12 @@
-import { Market, Token } from "@/types";
+import { Market, Token } from "@/lib/services/token/types";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/lib/ui/components/ui/tooltip";
 import { motion } from "framer-motion";
+import { AlertCircleIcon } from "lucide-react";
 import Image from "next/image";
 
 interface TokenProps {
@@ -17,13 +24,29 @@ export default function Token({ token, market }: TokenProps) {
       }}
       className="w-full flex gap-2 flex-col items-center p-2 hover:cursor-pointer"
     >
-      <Image
-        className="rounded-md"
-        src={token.image}
-        alt={token.name}
-        width={800}
-        height={800}
-      />
+      <div className="flex justify-end">
+        {token.isFlagged && (
+          <div className="absolute m-2">
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger>
+                  <AlertCircleIcon className="bg-red-500 rounded-full" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>This item can&apos;t be sold on Opensea</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+        )}
+        <Image
+          className="rounded-md"
+          src={token.image}
+          alt={token.name}
+          width={800}
+          height={800}
+        />
+      </div>
       <div className="w-full gap-0 flex flex-col items-center">
         <p className="font-bold">{token.name}</p>
         <span className="flex gap-1 items-center">

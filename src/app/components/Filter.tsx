@@ -1,20 +1,21 @@
-import { Filter } from "@/types";
+import { Filter } from "@/lib/services/token/types";
 import CollectionFilter from "./CollectionFilter";
+import { Emblem } from "@/lib/emblems/types";
 
 interface FilterProps {
-  selectedBadge: Filter;
-  setSelectedBadge: (filter: Filter) => void;
+  selectedEmblem: Emblem;
+  setSelectedEmblem: (emblem: Emblem) => void;
 }
 
 export default function Filter({
-  selectedBadge,
-  setSelectedBadge,
+  selectedEmblem,
+  setSelectedEmblem,
 }: FilterProps) {
   return (
     <div>
       <CollectionFilter
-        selectedBadge={selectedBadge}
-        setSelectedBadge={setSelectedBadge}
+        selectedEmblem={selectedEmblem}
+        setSelectedEmblem={setSelectedEmblem}
       />
     </div>
   );
