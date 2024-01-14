@@ -6,9 +6,14 @@ export enum Collection {
 
 export enum EmblemId {
   AZUKI = "azuki",
+  GOLD = "gold",
+  SPIRIT = "spirit",
+  FROG = "frog",
+  RED_PANDA = "red-panda",
+  CAT = "cat",
+  SLOTH = "sloth",
   BEANZ = "beanz",
   ELEMENTAL = "elemental",
   SHONEN = "shonen",
   ANIMAL = "animal",
-  GOLD = "gold",
 }

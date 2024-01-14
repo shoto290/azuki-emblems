@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
-import { Nft } from "../services/token/types";
 import { Collection, EmblemId } from "./enums";
+import { sort } from "./sort";
 import { Emblem } from "./types";
 
 export const Gold: Emblem = {
@@ -128,23 +128,3 @@ export const Gold: Emblem = {
     return sort(tokens);
   },
 };
-
-function sort(tokens: Nft[]): Nft[] {
-  return tokens.sort((a, b) => {
-    if (a.market.floorAsk.price?.amount.decimal === undefined) return 1;
-    if (b.market.floorAsk.price?.amount.decimal === undefined) return -1;
-
-    if (
-      a.market.floorAsk.price?.amount.decimal <
-      b.market.floorAsk.price?.amount.decimal
-    )
-      return -1;
-    if (
-      a.market.floorAsk.price?.amount.decimal >
-      b.market.floorAsk.price?.amount.decimal
-    )
-      return 1;
-
-    return 0;
-  });
-}
