@@ -26,13 +26,12 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="w-full max-w-[1400px]">
-          <Provider>
-            <Header />
+        <Provider>
+          <div className="w-full max-w-[1400px] mt-4">
             {children}
             <Footer />
-          </Provider>
-        </div>
+          </div>
+        </Provider>
       </body>
     </html>
   );
