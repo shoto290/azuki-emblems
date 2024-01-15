@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
 import Provider from "./provider";
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Provider>
           <div className="w-full max-w-[1400px] mt-4">{children}</div>
         </Provider>
+        <Analytics />
       </body>
     </html>
   );
