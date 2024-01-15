@@ -10,6 +10,30 @@ export interface Attribute {
   value: string;
 }
 
+export interface AttributeDetail {
+  key: string;
+  kind: string;
+  value: string;
+  tokenCount: number;
+  onSaleCount: number;
+  floorAskPrice: {
+    currency: {
+      contract: string;
+      name: string;
+      symbol: string;
+      decimals: number;
+    };
+    amount: {
+      raw: string;
+      decimal: number;
+      usd: number;
+      native: number;
+    };
+  };
+  topBidValue: number;
+  createdAt: string;
+}
+
 export interface Token {
   chainId: number;
   contract: string;
@@ -23,6 +47,7 @@ export interface Token {
     imageOriginal: string;
     imageMimeType: string;
   };
+  attributes: AttributeDetail[];
   media: null;
   kind: string;
   isFlagged: boolean;

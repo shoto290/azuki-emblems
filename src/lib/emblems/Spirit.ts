@@ -11,10 +11,25 @@ export const Spirit: Emblem = {
     {
       description: "Spirit Type",
       value: 15000,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Type",
+              value: "Spirit",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Azuki #1879",
       value: 7500,
+      conditions: [
+        {
+          tokenId: 1879,
+        },
+      ],
     },
   ],
   getTokens: async () => {

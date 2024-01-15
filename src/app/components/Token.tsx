@@ -1,3 +1,4 @@
+import { Point } from "@/lib/emblems/types";
 import { Market, Token } from "@/lib/services/token/types";
 import {
   Tooltip,
@@ -7,14 +8,15 @@ import {
 } from "@/lib/ui/components/ui/tooltip";
 import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
-import Image from "next/image";
+import TokenPointsBadge from "./TokenPointsBadge";
 
 interface TokenProps {
   token: Token;
   market: Market;
+  points: Point[];
 }
 
-export default function Token({ token, market }: TokenProps) {
+export default function Token({ token, market, points }: TokenProps) {
   return (
     <div
       onClick={() => {
@@ -29,22 +31,11 @@ export default function Token({ token, market }: TokenProps) {
           type: "easeInOut",
           duration: 0.1,
         }}
-        className="flex justify-end"
+        className="flex w-full justify-end"
       >
-        {token.isFlagged && (
-          <div className="absolute m-2">
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger>
-                  <AlertCircleIcon className="bg-red-500 rounded-full" />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>This item can&apos;t be sold on Opensea</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-        )}
+        <div className="absolute mt-1 mr-2">
+          <TokenPointsBadge token={token} points={points} />
+        </div>
         <img
           className="rounded-md"
           src={token.image}
@@ -54,7 +45,21 @@ export default function Token({ token, market }: TokenProps) {
         />
       </motion.div>
       <div className="w-full gap-0 flex flex-col items-center">
-        <p className="font-bold">{token.name}</p>
+        <p className="font-bold flex gap-1 items-center">
+          {token.name}
+          {token.isFlagged && (
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger>
+                  <AlertCircleIcon className="bg-red-500 h-4 w-4 rounded-full" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>This item can&apos;t be sold on Opensea</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+        </p>
         {market.floorAsk.price && (
           <span className="flex gap-1 items-center">
             <img className="h-[16px]" src={market.floorAsk.source.icon} />

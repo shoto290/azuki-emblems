@@ -12,7 +12,7 @@ export default async function searchTokens(
   options: SearchTokensOptions
 ): Promise<Nft[]> {
   const response = await ky(
-    `https://api.reservoir.tools/tokens/v7?limit=${
+    `https://api.reservoir.tools/tokens/v7?includeAttributes=true&limit=${
       options.limit || 20
     }&collection=${options.contracts?.join("&contract=")}${formatAttributes(
       options.attributes

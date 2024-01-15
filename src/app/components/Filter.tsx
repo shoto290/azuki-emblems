@@ -12,16 +12,18 @@ import { Emblem } from "@/lib/emblems/types";
 import { emblems } from "@/lib/emblems/constants";
 import { ChevronRightIcon } from "lucide-react";
 
-import PointsBadge from "./PointsBadge";
+import EmblemPointsBadge from "./EmblemPointsBadge";
 
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
   setSelectedEmblem: (emblem: Emblem) => void;
+  loading: boolean;
 }
 
 export default function Filter({
   selectedEmblem,
   setSelectedEmblem,
+  loading,
 }: CollectionFilterProps) {
   return (
     <Command>
@@ -33,6 +35,8 @@ export default function Filter({
             value={emblem.name}
             key={emblem.name}
             onSelect={() => {
+              if (loading) return;
+
               setSelectedEmblem(emblem);
             }}
             className="flex gap-3 p-2"
@@ -42,7 +46,7 @@ export default function Filter({
             )}
             <span className="flex items-center gap-2 font-bold text-stone-200">
               {emblem.name.toUpperCase()}
-              {emblem.points && <PointsBadge points={emblem.points} />}
+              {emblem.points && <EmblemPointsBadge points={emblem.points} />}
             </span>
             <ChevronRightIcon
               className={cn(

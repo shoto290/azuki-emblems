@@ -13,10 +13,11 @@ export default function Feed() {
   return (
     <div className="flex gap-1">
       <div className="w-[300px] h-[calc(97dvh)] fixed flex flex-col items-center mb-4 p-2 gap-4">
-        <ConnectKitButton />
+        {/* <ConnectKitButton /> */}
         <Filter
           setSelectedEmblem={setSelectedEmblem}
           selectedEmblem={selectedEmblem}
+          loading={!collections}
         />
         <Footer />
       </div>
@@ -28,6 +29,7 @@ export default function Feed() {
             key={collection.token.tokenId}
             token={collection.token}
             market={collection.market}
+            points={selectedEmblem.points}
           />
         ))}
       </div>
