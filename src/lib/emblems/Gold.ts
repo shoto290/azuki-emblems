@@ -8,6 +8,20 @@ export const Gold: Emblem = {
   name: "Gold",
   contracts: [Collection.AZUKI],
   icon: "/images/gold-emblem.webp",
+  points: [
+    {
+      description: "1 Gold Trait",
+      value: 1000,
+    },
+    {
+      description: "2  Gold Traits",
+      value: 4000,
+    },
+    {
+      description: "3  Gold Traits",
+      value: 10000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

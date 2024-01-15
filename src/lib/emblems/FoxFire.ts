@@ -7,6 +7,12 @@ export const FoxFire: Emblem = {
   name: "Fox Fire",
   contracts: [Collection.AZUKI],
   icon: "/images/fox-fire-emblem.webp",
+  points: [
+    {
+      description: "Own one Azuki with the Fox Fire Trait",
+      value: 900,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

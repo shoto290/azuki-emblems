@@ -2,14 +2,14 @@ import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId } from "./enums";
 import { Emblem } from "./types";
 
-export const Sakura: Emblem = {
-  id: EmblemId.SAKURA,
-  name: "Sakura",
+export const Fireflies: Emblem = {
+  id: EmblemId.FIREFLIES,
+  name: "Fireflies",
   contracts: [Collection.AZUKI],
-  icon: "/images/sakura-emblem.webp",
+  icon: "/images/fireflies-emblem.webp",
   points: [
     {
-      description: "Own one Azuki with the Sakura Trait",
+      description: "Own one Azuki with the Fireflies Trait",
       value: 900,
     },
   ],
@@ -19,7 +19,7 @@ export const Sakura: Emblem = {
       attributes: [
         {
           trait_type: "Special",
-          value: "Sakura",
+          value: "Fireflies",
         },
       ],
     });

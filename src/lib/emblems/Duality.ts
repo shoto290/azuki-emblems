@@ -7,6 +7,12 @@ export const Duality: Emblem = {
   name: "Duality",
   contracts: [Collection.AZUKI],
   icon: "/images/duality-emblem.webp",
+  points: [
+    {
+      description: "Own one Azuki of a Red or Blue Type",
+      value: 250,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

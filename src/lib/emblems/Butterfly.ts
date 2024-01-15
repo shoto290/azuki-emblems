@@ -7,6 +7,12 @@ export const Butterfly: Emblem = {
   name: "Butterfly",
   contracts: [Collection.AZUKI],
   icon: "/images/butterfly-emblem.webp",
+  points: [
+    {
+      description: "Own one Azuki with the Butterfly Trait",
+      value: 900,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

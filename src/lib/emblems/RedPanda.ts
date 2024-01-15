@@ -8,6 +8,24 @@ export const RedPanda: Emblem = {
   name: "Red Panda",
   contracts: [Collection.AZUKI],
   icon: "/images/red-panda-emblem.webp",
+  points: [
+    {
+      description: "1 Red Panda trait",
+      value: 100,
+    },
+    {
+      description: "2 Red Panda trait",
+      value: 400,
+    },
+    {
+      description: "3 Red Panda trait",
+      value: 1000,
+    },
+    {
+      description: "4 Red Panda trait",
+      value: 12000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

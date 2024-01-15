@@ -7,6 +7,13 @@ export const Elemental: Emblem = {
   name: "Elemental",
   contracts: [Collection.ELEMENTAL],
   icon: "/images/elemental-emblem.webp",
+  points: [
+    {
+      description: "Own one Elemental",
+      value: 100,
+      infinite: true,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],

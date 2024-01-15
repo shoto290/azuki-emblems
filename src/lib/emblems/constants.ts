@@ -7,6 +7,7 @@ import { Duality } from "./Duality";
 import { Earth } from "./Earth";
 import { Elemental } from "./Elemental";
 import { Fire } from "./Fire";
+import { Fireflies } from "./Fireflies";
 import { FoxFire } from "./FoxFire";
 import { Frog } from "./Frog";
 import { Gold } from "./Gold";
@@ -28,6 +29,7 @@ export const emblems = [
   RedPanda,
   Cat,
   Sloth,
+  Fireflies,
   Butterfly,
   FoxFire,
   Smoke,

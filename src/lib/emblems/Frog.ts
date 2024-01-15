@@ -8,6 +8,24 @@ export const Frog: Emblem = {
   name: "Frog",
   contracts: [Collection.AZUKI],
   icon: "/images/frog-emblem.webp",
+  points: [
+    {
+      description: "1 Frog trait",
+      value: 100,
+    },
+    {
+      description: "2 Frog trait",
+      value: 400,
+    },
+    {
+      description: "3 Frog trait",
+      value: 1000,
+    },
+    {
+      description: "4 Frog trait",
+      value: 12000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

@@ -12,6 +12,7 @@ export enum EmblemId {
   RED_PANDA = "red-panda",
   CAT = "cat",
   SLOTH = "sloth",
+  FIREFLIES = "fireflies",
   BUTTERFLY = "butterfly",
   FOX_FIRE = "fox-fire",
   SMOKE = "smoke",

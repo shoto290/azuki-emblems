@@ -8,6 +8,20 @@ export const Water: Emblem = {
   name: "Water",
   contracts: [Collection.AZUKI],
   icon: "/images/water-emblem.webp",
+  points: [
+    {
+      description: "Water Orb Offhand",
+      value: 700,
+    },
+    {
+      description: "Water Special",
+      value: 1500,
+    },
+    {
+      description: "Water Hait",
+      value: 3000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

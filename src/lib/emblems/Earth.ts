@@ -8,6 +8,16 @@ export const Earth: Emblem = {
   name: "Earth",
   contracts: [Collection.AZUKI],
   icon: "/images/earth-emblem.webp",
+  points: [
+    {
+      description: "Earth Offhand",
+      value: 700,
+    },
+    {
+      description: "Earth Special",
+      value: 1500,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

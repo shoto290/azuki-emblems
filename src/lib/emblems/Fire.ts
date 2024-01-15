@@ -8,6 +8,24 @@ export const Fire: Emblem = {
   name: "Fire",
   contracts: [Collection.AZUKI],
   icon: "/images/fire-emblem.webp",
+  points: [
+    {
+      description: "Fire Eyes",
+      value: 700,
+    },
+    {
+      description: "Fireball Offhand",
+      value: 700,
+    },
+    {
+      description: "Fire Special",
+      value: 1500,
+    },
+    {
+      description: "Fire Hait",
+      value: 3000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

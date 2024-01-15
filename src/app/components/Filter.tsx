@@ -12,6 +12,8 @@ import { Emblem } from "@/lib/emblems/types";
 import { emblems } from "@/lib/emblems/constants";
 import { ChevronRightIcon } from "lucide-react";
 
+import PointsBadge from "./PointsBadge";
+
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
   setSelectedEmblem: (emblem: Emblem) => void;
@@ -38,9 +40,10 @@ export default function Filter({
             {emblem.icon && (
               <img src={emblem.icon} alt={emblem.name} height={40} width={40} />
             )}
-            <p className="font-bold text-stone-200">
+            <span className="flex items-center gap-2 font-bold text-stone-200">
               {emblem.name.toUpperCase()}
-            </p>
+              {emblem.points && <PointsBadge points={emblem.points} />}
+            </span>
             <ChevronRightIcon
               className={cn(
                 "ml-auto h-4 w-4",

@@ -7,6 +7,12 @@ export const Animal: Emblem = {
   name: "Animal",
   contracts: [Collection.ELEMENTAL],
   icon: "/images/animal-emblem.webp",
+  points: [
+    {
+      description: "Own one Sloth, Red Panda, Cat, or Frog Elemental token",
+      value: 350,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],

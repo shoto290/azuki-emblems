@@ -8,6 +8,24 @@ export const Sloth: Emblem = {
   name: "Sloth",
   contracts: [Collection.AZUKI],
   icon: "/images/sloth-emblem.webp",
+  points: [
+    {
+      description: "1 Sloth trait",
+      value: 100,
+    },
+    {
+      description: "2 Sloth trait",
+      value: 400,
+    },
+    {
+      description: "3 Sloth trait",
+      value: 1000,
+    },
+    {
+      description: "4 Sloth trait",
+      value: 12000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

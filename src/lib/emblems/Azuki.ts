@@ -7,6 +7,12 @@ export const Azuki: Emblem = {
   name: "Azuki",
   contracts: [Collection.AZUKI],
   icon: "/images/azuki-emblem.webp",
+  points: [
+    {
+      description: "Own 1 Azuki NFT",
+      value: 1000,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

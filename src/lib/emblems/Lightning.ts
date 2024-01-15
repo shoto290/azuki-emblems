@@ -8,6 +8,20 @@ export const Lightning: Emblem = {
   name: "Lightning",
   contracts: [Collection.AZUKI],
   icon: "/images/lightning-emblem.webp",
+  points: [
+    {
+      description: "Lightning Eyes",
+      value: 700,
+    },
+    {
+      description: "Lightning Orb Offhand",
+      value: 700,
+    },
+    {
+      description: "Lightning Special",
+      value: 1500,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

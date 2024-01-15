@@ -7,6 +7,16 @@ export const Kigu: Emblem = {
   name: "Kigu",
   contracts: [Collection.AZUKI],
   icon: "/images/kigu-emblem.webp",
+  points: [
+    {
+      description: "Standard Kigurumi clothing",
+      value: 1000,
+    },
+    {
+      description: "golden Kigurumi clothing",
+      value: 5000,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

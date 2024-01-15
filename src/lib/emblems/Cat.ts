@@ -8,6 +8,24 @@ export const Cat: Emblem = {
   name: "Cat",
   contracts: [Collection.AZUKI],
   icon: "/images/cat-emblem.webp",
+  points: [
+    {
+      description: "1 Cat trait",
+      value: 100,
+    },
+    {
+      description: "2 Cat trait",
+      value: 400,
+    },
+    {
+      description: "3 Cat trait",
+      value: 1000,
+    },
+    {
+      description: "4 Cat trait",
+      value: 12000,
+    },
+  ],
   getTokens: async () => {
     const tokens = [
       ...(await searchTokens({

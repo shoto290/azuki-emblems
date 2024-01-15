@@ -7,6 +7,12 @@ export const Smoke: Emblem = {
   name: "Smoke",
   contracts: [Collection.AZUKI],
   icon: "/images/smoke-emblem.webp",
+  points: [
+    {
+      description: "Own one Azuki with the Smoke Trait",
+      value: 900,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.AZUKI],

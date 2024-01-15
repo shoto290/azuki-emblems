@@ -7,6 +7,13 @@ export const Beanz: Emblem = {
   name: "Beanz",
   contracts: [Collection.BEANZ],
   icon: "/images/beanz-emblem.webp",
+  points: [
+    {
+      description: "Own one Beanz",
+      value: 67,
+      infinite: true,
+    },
+  ],
   getTokens: async () => {
     return searchTokens({
       contracts: [Collection.BEANZ],
