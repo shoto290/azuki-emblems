@@ -12,6 +12,7 @@ export const Beanz: Emblem = {
       description: "Own one Beanz",
       value: 67,
       infinite: true,
+      conditions: [],
     },
   ],
   getTokens: async () => {

@@ -12,14 +12,44 @@ export const Lightning: Emblem = {
     {
       description: "Lightning Eyes",
       value: 700,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Lightning",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Lightning Orb Offhand",
       value: 700,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Lightning Orb",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Lightning Special",
       value: 1500,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Lightning",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

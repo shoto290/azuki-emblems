@@ -11,6 +11,16 @@ export const Shonen: Emblem = {
     {
       description: "Own one Elemental of a Kid subtype",
       value: 100,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Subtype",
+              value: "Kid",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

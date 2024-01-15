@@ -11,6 +11,16 @@ export const Smoke: Emblem = {
     {
       description: "Own one Azuki with the Smoke Trait",
       value: 900,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Smoke",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

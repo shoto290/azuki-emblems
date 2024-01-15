@@ -3,6 +3,7 @@ import { Attribute, Nft } from "@/lib/services/token/types";
 export interface Condition {
   attributes?: Attribute[];
   tokenId?: number;
+  requiredConditions?: number;
 }
 
 export interface Point {

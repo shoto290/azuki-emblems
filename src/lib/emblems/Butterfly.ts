@@ -11,6 +11,16 @@ export const Butterfly: Emblem = {
     {
       description: "Own one Azuki with the Butterfly Trait",
       value: 900,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Butterfly",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

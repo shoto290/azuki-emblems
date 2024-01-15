@@ -12,10 +12,30 @@ export const Earth: Emblem = {
     {
       description: "Earth Offhand",
       value: 700,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Earth",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Earth Special",
       value: 1500,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Earth",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

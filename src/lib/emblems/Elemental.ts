@@ -12,6 +12,7 @@ export const Elemental: Emblem = {
       description: "Own one Elemental",
       value: 100,
       infinite: true,
+      conditions: [],
     },
   ],
   getTokens: async () => {

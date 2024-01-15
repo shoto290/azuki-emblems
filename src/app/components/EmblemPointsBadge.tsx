@@ -12,13 +12,11 @@ interface PointsBadgeProps {
 }
 
 export default function EmblemPointsBadge({ points }: PointsBadgeProps) {
-  const total = points.reduce((acc, point) => acc + point.value, 0);
-
   return (
     <TooltipProvider delayDuration={0}>
-      <Tooltip>
+      <Tooltip delayDuration={500}>
         <TooltipTrigger>
-          <Badge variant="default">{total}</Badge>
+          <Badge variant="default">?</Badge>
         </TooltipTrigger>
         <TooltipContent className="flex flex-col gap-3">
           {points.map((point) => (

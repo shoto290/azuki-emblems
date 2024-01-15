@@ -20,7 +20,10 @@ export default function Token({ token, market, points }: TokenProps) {
   return (
     <div
       onClick={() => {
-        window.open(market.floorAsk.source.url);
+        window.open(
+          market.floorAsk.source?.url ||
+            `https://opensea.io/assets/ethereum/${token.contract}/${token.tokenId}`
+        );
       }}
       className="w-full flex gap-2 flex-col items-center p-2 hover:cursor-pointer"
     >

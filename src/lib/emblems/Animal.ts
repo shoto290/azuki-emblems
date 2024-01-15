@@ -11,6 +11,40 @@ export const Animal: Emblem = {
     {
       description: "Own one Sloth, Red Panda, Cat, or Frog Elemental token",
       value: 350,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Subtype",
+              value: "Sloth",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Subtype",
+              value: "Frog",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Subtype",
+              value: "Red Panda",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Subtype",
+              value: "Cat",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

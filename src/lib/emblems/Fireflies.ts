@@ -11,6 +11,16 @@ export const Fireflies: Emblem = {
     {
       description: "Own one Azuki with the Fireflies Trait",
       value: 900,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Fireflies",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

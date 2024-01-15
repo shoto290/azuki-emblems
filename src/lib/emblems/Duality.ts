@@ -11,6 +11,24 @@ export const Duality: Emblem = {
     {
       description: "Own one Azuki of a Red or Blue Type",
       value: 250,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Type",
+              value: "Red",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Type",
+              value: "Blue",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

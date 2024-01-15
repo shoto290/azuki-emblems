@@ -11,6 +11,16 @@ export const FoxFire: Emblem = {
     {
       description: "Own one Azuki with the Fox Fire Trait",
       value: 900,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Fox Fire",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

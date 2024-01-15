@@ -11,6 +11,16 @@ export const Sakura: Emblem = {
     {
       description: "Own one Azuki with the Sakura Trait",
       value: 900,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Sakura",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

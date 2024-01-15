@@ -6,39 +6,34 @@ export function checkValidPoints(token: Token, points: Point[]) {
     if (!point.conditions) return acc;
     if (point.conditions.length === 0) return [...acc, point];
 
-    let isValid = true;
+    let validCondition = 0;
     for (const condition of point.conditions) {
       if (condition.attributes) {
         for (const attribute of condition.attributes) {
           if (
-            !token.attributes.find((tokenAttribute) => {
+            token.attributes.find((tokenAttribute) => {
               if (tokenAttribute.key === attribute.trait_type) {
                 if (tokenAttribute.value === attribute.value) {
                   return true;
                 }
               }
+
               return false;
             })
           ) {
-            isValid = false;
-            break;
+            validCondition++;
           }
-        }
-
-        if (!isValid) {
-          break;
         }
       }
 
       if (condition.tokenId) {
-        if (Number(token.tokenId) !== condition.tokenId) {
-          isValid = false;
-          break;
+        if (Number(token.tokenId) === condition.tokenId) {
+          validCondition++;
         }
       }
     }
 
-    if (isValid) {
+    if (validCondition >= 1) {
       return [...acc, point];
     }
     return acc;

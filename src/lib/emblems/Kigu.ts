@@ -11,10 +11,78 @@ export const Kigu: Emblem = {
     {
       description: "Standard Kigurumi clothing",
       value: 1000,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Red Panda Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog Kigurumi",
+            },
+          ],
+        },
+      ],
     },
     {
-      description: "golden Kigurumi clothing",
+      description: "Golden Kigurumi clothing",
       value: 5000,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Cat Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Sloth Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Red Panda Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Frog Kigurumi",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

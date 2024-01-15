@@ -12,18 +12,58 @@ export const Fire: Emblem = {
     {
       description: "Fire Eyes",
       value: 700,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Fire",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Fireball Offhand",
       value: 700,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Fireball",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Fire Special",
       value: 1500,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Fire",
+            },
+          ],
+        },
+      ],
     },
     {
       description: "Fire Hait",
       value: 3000,
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Fire",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {
