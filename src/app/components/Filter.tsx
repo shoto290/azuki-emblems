@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import { cn } from "@/lib/utils";
 import {
   Command,
@@ -13,7 +11,6 @@ import {
 import { Emblem } from "@/lib/emblems/types";
 import { emblems } from "@/lib/emblems/constants";
 import { ChevronRightIcon } from "lucide-react";
-import { CommandList } from "cmdk";
 
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
@@ -39,12 +36,7 @@ export default function Filter({
             className="flex gap-3 p-2"
           >
             {emblem.icon && (
-              <Image
-                src={emblem.icon}
-                alt={emblem.name}
-                height={40}
-                width={40}
-              />
+              <img src={emblem.icon} alt={emblem.name} height={40} width={40} />
             )}
             <p className="font-bold text-stone-200">
               {emblem.name.toUpperCase()}

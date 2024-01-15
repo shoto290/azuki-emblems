@@ -45,7 +45,7 @@ export default function Token({ token, market }: TokenProps) {
             </TooltipProvider>
           </div>
         )}
-        <Image
+        <img
           className="rounded-md"
           src={token.image}
           alt={token.name}
