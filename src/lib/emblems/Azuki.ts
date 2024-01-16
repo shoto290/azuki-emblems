@@ -11,6 +11,7 @@ export const Azuki: Emblem = {
     {
       description: "Own 1 Azuki NFT",
       value: 1000,
+      infinite: true,
       conditions: [],
     },
   ],

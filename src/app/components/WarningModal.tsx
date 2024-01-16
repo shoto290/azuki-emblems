@@ -9,12 +9,19 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/lib/ui/components/ui/dialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function WarningModal() {
-  const [open, setOpen] = useState(localStorage.getItem("warning") !== "true");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const warning = localStorage.getItem("warning");
+
+    if (warning !== "true") {
+      setOpen(true);
+    }
+  }, []);
 
   return (
     <Dialog open={open}>
