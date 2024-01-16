@@ -19,7 +19,7 @@ export default async function searchTokens(
     )}`,
     {
       headers: {
-        "x-api-key": config.reservoirApiKey,
+        "x-api-key": config.RESERVOIR_API_KEY,
       },
     }
   );
