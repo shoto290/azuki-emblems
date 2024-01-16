@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import Provider from "./provider";
 import { Metadata } from "next";
+import { WarningModal } from "./components/WarningModal";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <div className="w-full max-w-[1400px] mt-4">{children}</div>
         </Provider>
         <Analytics />
+        <WarningModal />
       </body>
     </html>
   );
