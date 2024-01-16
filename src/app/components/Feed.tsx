@@ -34,14 +34,13 @@ export default function Feed() {
         </div>
       )}
       {isMobile && open && (
-        <div className="absolute left-0 w-full h-[calc(94dvh)] flex flex-col items-center p-2 z-10">
+        <div className="fixed left-0 w-full h-[calc(89dvh)] flex flex-col items-center p-2 z-10">
           {/* <ConnectKitButton /> */}
           <Filter
             setSelectedEmblem={setSelectedEmblem}
             selectedEmblem={selectedEmblem}
             loading={!collections}
           />
-          <Footer />
         </div>
       )}
       {!isMobile && (
