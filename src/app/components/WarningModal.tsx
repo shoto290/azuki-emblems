@@ -32,13 +32,11 @@ export function WarningModal() {
         <DialogDescription className="flex flex-col gap-3">
           <p>
             Please note that our site is currently in beta, and while the points
-            are fixed, errors in estimations may occur. The values displayed are
-            based on available data, but inaccuracies in the points assigned to
-            each NFT may exist.
+            are fixed, errors in estimations may occur.
           </p>
           <p>
-            Your use of this beta version is invaluable in helping us correct
-            these errors and improve the accuracy of our estimates.
+            The values displayed are based on available data, but inaccuracies
+            in the points assigned to each NFT may exist.
           </p>
         </DialogDescription>
         <DialogFooter className="w-full">
