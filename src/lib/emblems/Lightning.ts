@@ -54,39 +54,39 @@ export const Lightning: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Eyes",
-            value: "Lightning",
-          },
-        ],
-        limit: 46,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Offhand",
-            value: "Lightning Orb",
-          },
-        ],
-        limit: 69,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Special",
-            value: "Lightning",
-          },
-        ],
-        limit: 48,
-      })),
-    ];
+    const eyes = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Eyes",
+          value: "Lightning",
+        },
+      ],
+      limit: 46,
+    });
+    const offhands = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Offhand",
+          value: "Lightning Orb",
+        },
+      ],
+      limit: 69,
+    });
+    const specials = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Special",
+          value: "Lightning",
+        },
+      ],
+      limit: 48,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([...eyes.tokens, ...offhands.tokens, ...specials.tokens]),
+    };
   },
 };

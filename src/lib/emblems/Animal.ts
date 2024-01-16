@@ -48,7 +48,7 @@ export const Animal: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],
       attributes: [
@@ -69,6 +69,7 @@ export const Animal: Emblem = {
           value: "Cat",
         },
       ],
+      continuation,
     });
   },
 };

@@ -1,22 +1,27 @@
 import config from "@/config";
-import { Attribute, Nft } from "@/lib/services/token/types";
+import {
+  Attribute,
+  Nft,
+  SearchTokensResponse,
+} from "@/lib/services/token/types";
 import ky from "ky";
 
 interface SearchTokensOptions {
   contracts?: string[];
   attributes?: Attribute[];
   limit?: number;
+  continuation?: string;
 }
 
 export default async function searchTokens(
   options: SearchTokensOptions
-): Promise<Nft[]> {
+): Promise<SearchTokensResponse> {
   const response = await ky(
     `https://api.reservoir.tools/tokens/v7?includeAttributes=true&limit=${
       options.limit || 20
     }&collection=${options.contracts?.join("&contract=")}${formatAttributes(
       options.attributes
-    )}`,
+    )}${options.continuation ? `&continuation=${options.continuation}` : ""}`,
     {
       headers: {
         "x-api-key": config.RESERVOIR_API_KEY,
@@ -25,8 +30,7 @@ export default async function searchTokens(
   );
 
   const collections = await response.json<{ tokens: Nft[] }>();
-
-  return collections.tokens;
+  return collections;
 }
 
 function formatAttributes(attributes: Attribute[] | undefined): string {

@@ -54,39 +54,39 @@ export const Water: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Offhand",
-            value: "Water Orb",
-          },
-        ],
-        limit: 61,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Special",
-            value: "Water",
-          },
-        ],
-        limit: 49,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Hair",
-            value: "Water",
-          },
-        ],
-        limit: 21,
-      })),
-    ];
+    const offhands = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Offhand",
+          value: "Water Orb",
+        },
+      ],
+      limit: 61,
+    });
+    const specials = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Special",
+          value: "Water",
+        },
+      ],
+      limit: 49,
+    });
+    const hairs = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Hair",
+          value: "Water",
+        },
+      ],
+      limit: 21,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([...offhands.tokens, ...specials.tokens, ...hairs.tokens]),
+    };
   },
 };

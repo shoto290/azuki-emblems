@@ -24,7 +24,7 @@ export const Shonen: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],
       attributes: [
@@ -33,6 +33,7 @@ export const Shonen: Emblem = {
           value: "Kid",
         },
       ],
+      continuation,
     });
   },
 };

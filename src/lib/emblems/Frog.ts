@@ -115,81 +115,86 @@ export const Frog: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Clothing",
-            value: "Golden Frog Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Frog Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Frog Yukata",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Frog Hoodie",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Frog Kimono",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Frog T-Shirt",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Ear",
-            value: "Frog",
-          },
-        ],
-        limit: 35,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Headgear",
-            value: "Frog Beanie",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Frog Mask",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Frog Baseball Cap",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Frog Headband",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Neck",
-            value: "Frog Headphones",
-          },
-        ],
-        limit: 52,
-      })),
-    ];
+    const clothings = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Clothing",
+          value: "Golden Frog Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Frog Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Frog Yukata",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Frog Hoodie",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Frog Kimono",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Frog T-Shirt",
+        },
+      ],
+      limit: 100,
+    });
+    const ears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Ear",
+          value: "Frog",
+        },
+      ],
+      limit: 35,
+    });
+    const headgears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Headgear",
+          value: "Frog Beanie",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Frog Mask",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Frog Baseball Cap",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Frog Headband",
+        },
+      ],
+      limit: 100,
+    });
+    const necks = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Neck",
+          value: "Frog Headphones",
+        },
+      ],
+      limit: 52,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([
+        ...clothings.tokens,
+        ...ears.tokens,
+        ...headgears.tokens,
+        ...necks.tokens,
+      ]),
+    };
   },
 };

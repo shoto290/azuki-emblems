@@ -16,9 +16,10 @@ export const Elemental: Emblem = {
       conditions: [],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],
+      continuation,
     });
   },
 };

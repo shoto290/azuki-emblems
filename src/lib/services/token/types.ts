@@ -126,3 +126,8 @@ export interface Nft {
   market: Market;
   updatedAt: string;
 }
+
+export interface SearchTokensResponse {
+  tokens: Nft[];
+  continuation?: string;
+}

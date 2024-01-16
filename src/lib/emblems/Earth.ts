@@ -40,29 +40,29 @@ export const Earth: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Offhand",
-            value: "Earth",
-          },
-        ],
-        limit: 58,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Special",
-            value: "Earth",
-          },
-        ],
-        limit: 53,
-      })),
-    ];
+    const offhands = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Offhand",
+          value: "Earth",
+        },
+      ],
+      limit: 58,
+    });
+    const specials = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Special",
+          value: "Earth",
+        },
+      ],
+      limit: 53,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([...offhands.tokens, ...specials.tokens]),
+    };
   },
 };

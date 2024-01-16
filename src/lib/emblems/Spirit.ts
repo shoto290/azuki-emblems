@@ -33,7 +33,7 @@ export const Spirit: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.AZUKI],
       attributes: [
@@ -42,6 +42,7 @@ export const Spirit: Emblem = {
           value: "Spirit",
         },
       ],
+      continuation,
     });
   },
 };

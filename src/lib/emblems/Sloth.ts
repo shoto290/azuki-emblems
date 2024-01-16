@@ -115,81 +115,86 @@ export const Sloth: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Clothing",
-            value: "Golden Sloth Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Sloth Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Sloth Yukata",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Sloth Hoodie",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Sloth Kimono",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Sloth T-Shirt",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Ear",
-            value: "Sloth",
-          },
-        ],
-        limit: 35,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Headgear",
-            value: "Sloth Beanie",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Sloth Mask",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Sloth Baseball Cap",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Sloth Headband",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Neck",
-            value: "Sloth Headphones",
-          },
-        ],
-        limit: 52,
-      })),
-    ];
+    const clothings = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Clothing",
+          value: "Golden Sloth Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Sloth Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Sloth Yukata",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Sloth Hoodie",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Sloth Kimono",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Sloth T-Shirt",
+        },
+      ],
+      limit: 100,
+    });
+    const ears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Ear",
+          value: "Sloth",
+        },
+      ],
+      limit: 35,
+    });
+    const headgears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Headgear",
+          value: "Sloth Beanie",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Sloth Mask",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Sloth Baseball Cap",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Sloth Headband",
+        },
+      ],
+      limit: 100,
+    });
+    const necks = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Neck",
+          value: "Sloth Headphones",
+        },
+      ],
+      limit: 52,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([
+        ...clothings.tokens,
+        ...ears.tokens,
+        ...headgears.tokens,
+        ...necks.tokens,
+      ]),
+    };
   },
 };

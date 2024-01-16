@@ -86,7 +86,7 @@ export const Kigu: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.AZUKI],
       attributes: [
@@ -123,6 +123,7 @@ export const Kigu: Emblem = {
           value: "Frog Kigurumi",
         },
       ],
+      continuation,
     });
   },
 };

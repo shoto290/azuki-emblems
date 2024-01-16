@@ -24,7 +24,7 @@ export const FoxFire: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.AZUKI],
       attributes: [
@@ -33,6 +33,7 @@ export const FoxFire: Emblem = {
           value: "Fox Fire",
         },
       ],
+      continuation,
     });
   },
 };

@@ -115,81 +115,86 @@ export const Cat: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Clothing",
-            value: "Golden Cat Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Cat Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Cat Yukata",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Cat Hoodie",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Cat Kimono",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Cat T-Shirt",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Ear",
-            value: "Cat",
-          },
-        ],
-        limit: 35,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Headgear",
-            value: "Cat Beanie",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Cat Mask",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Cat Baseball Cap",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Cat Headband",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Neck",
-            value: "Cat Headphones",
-          },
-        ],
-        limit: 52,
-      })),
-    ];
+    const clothingTokens = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Clothing",
+          value: "Golden Cat Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Cat Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Cat Yukata",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Cat Hoodie",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Cat Kimono",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Cat T-Shirt",
+        },
+      ],
+      limit: 100,
+    });
+    const earTokens = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Ear",
+          value: "Cat",
+        },
+      ],
+      limit: 35,
+    });
+    const headgearTokens = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Headgear",
+          value: "Cat Beanie",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Cat Mask",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Cat Baseball Cap",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Cat Headband",
+        },
+      ],
+      limit: 100,
+    });
+    const neckTokens = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Neck",
+          value: "Cat Headphones",
+        },
+      ],
+      limit: 52,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([
+        ...clothingTokens.tokens,
+        ...earTokens.tokens,
+        ...headgearTokens.tokens,
+        ...neckTokens.tokens,
+      ]),
+    };
   },
 };

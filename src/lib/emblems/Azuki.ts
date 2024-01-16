@@ -16,9 +16,10 @@ export const Azuki: Emblem = {
       conditions: [],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.AZUKI],
+      continuation,
     });
   },
 };

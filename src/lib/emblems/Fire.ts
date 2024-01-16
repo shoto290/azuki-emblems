@@ -68,49 +68,54 @@ export const Fire: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Eyes",
-            value: "Fire",
-          },
-        ],
-        limit: 57,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Offhand",
-            value: "Fireball",
-          },
-        ],
-        limit: 67,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Special",
-            value: "Fire",
-          },
-        ],
-        limit: 58,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Hair",
-            value: "Fire",
-          },
-        ],
-        limit: 22,
-      })),
-    ];
+    const eyes = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Eyes",
+          value: "Fire",
+        },
+      ],
+      limit: 57,
+    });
+    const offhands = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Offhand",
+          value: "Fireball",
+        },
+      ],
+      limit: 67,
+    });
+    const specials = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Special",
+          value: "Fire",
+        },
+      ],
+      limit: 58,
+    });
+    const hairs = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Hair",
+          value: "Fire",
+        },
+      ],
+      limit: 22,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([
+        ...eyes.tokens,
+        ...offhands.tokens,
+        ...specials.tokens,
+        ...hairs.tokens,
+      ]),
+    };
   },
 };

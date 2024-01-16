@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Nft } from "@/lib/services/token/types";
+import { Nft, SearchTokensResponse } from "@/lib/services/token/types";
 import { Emblem } from "@/lib/emblems/types";
 import { Azuki } from "@/lib/emblems/Azuki";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -7,8 +9,8 @@ import {
   azukiEmblems,
   beanzEmblems,
   elementalEmblems,
-  emblems,
 } from "@/lib/emblems/constants";
+import { useCollectionsContext } from "../contexts/CollectionsContext";
 
 export default function useCollections() {
   const searchParams = useSearchParams();
@@ -21,7 +23,8 @@ export default function useCollections() {
   const [selectedEmblem, setSelectedEmblem] = useState<Emblem>(
     defaultEmblem || Azuki
   );
-  const [collections, setCollections] = useState<Nft[] | null>(null);
+  const { collections, setCollections, isFetchingMore, setIsFetchingMore } =
+    useCollectionsContext();
 
   useEffect(() => {
     replace(`?emblem=${selectedEmblem.id}`);
@@ -33,9 +36,26 @@ export default function useCollections() {
     })();
   }, [selectedEmblem]);
 
+  useEffect(() => {
+    if (!isFetchingMore || !collections?.continuation) return;
+
+    (async () => {
+      if (!collections) return;
+      const tokens = await selectedEmblem.getTokens(collections.continuation);
+
+      setCollections({
+        tokens: [...collections.tokens, ...tokens.tokens],
+        continuation: tokens.continuation,
+      });
+      setIsFetchingMore(false);
+    })();
+  }, [isFetchingMore]);
+
   return {
     collections,
     selectedEmblem,
     setSelectedEmblem,
+    isFetchingMore,
+    setIsFetchingMore,
   };
 }

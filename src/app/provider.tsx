@@ -2,6 +2,7 @@
 
 import { createConfig, mainnet, WagmiConfig } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
+import { CollectionsProvider } from "./contexts/CollectionsContext";
 
 const config = createConfig(
   getDefaultConfig({
@@ -15,7 +16,9 @@ const config = createConfig(
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <WagmiConfig config={config}>
-      <ConnectKitProvider theme="midnight">{children}</ConnectKitProvider>
+      <ConnectKitProvider theme="midnight">
+        <CollectionsProvider>{children}</CollectionsProvider>
+      </ConnectKitProvider>
     </WagmiConfig>
   );
 }

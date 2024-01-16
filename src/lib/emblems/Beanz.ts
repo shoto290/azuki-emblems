@@ -16,9 +16,10 @@ export const Beanz: Emblem = {
       conditions: [],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.BEANZ],
+      continuation,
     });
   },
 };

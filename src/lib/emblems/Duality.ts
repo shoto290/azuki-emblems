@@ -32,7 +32,7 @@ export const Duality: Emblem = {
       ],
     },
   ],
-  getTokens: async () => {
+  getTokens: async (continuation?: string) => {
     return searchTokens({
       contracts: [Collection.AZUKI],
       attributes: [
@@ -45,6 +45,7 @@ export const Duality: Emblem = {
           value: "Blue",
         },
       ],
+      continuation,
     });
   },
 };

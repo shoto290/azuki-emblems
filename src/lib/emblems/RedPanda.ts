@@ -115,81 +115,86 @@ export const RedPanda: Emblem = {
     },
   ],
   getTokens: async () => {
-    const tokens = [
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Clothing",
-            value: "Golden Red Panda Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Red Panda Kigurumi",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Red Panda Yukata",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Red Panda Hoodie",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Red Panda Kimono",
-          },
-          {
-            trait_type: "Clothing",
-            value: "Red Panda T-Shirt",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Ear",
-            value: "Red Panda",
-          },
-        ],
-        limit: 35,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Headgear",
-            value: "Red Panda Beanie",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Red Panda Mask",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Red Panda Baseball Cap",
-          },
-          {
-            trait_type: "Headgear",
-            value: "Red Panda Headband",
-          },
-        ],
-        limit: 100,
-      })),
-      ...(await searchTokens({
-        contracts: [Collection.AZUKI],
-        attributes: [
-          {
-            trait_type: "Neck",
-            value: "Red Panda Headphones",
-          },
-        ],
-        limit: 52,
-      })),
-    ];
+    const clothings = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Clothing",
+          value: "Golden Red Panda Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Red Panda Kigurumi",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Red Panda Yukata",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Red Panda Hoodie",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Red Panda Kimono",
+        },
+        {
+          trait_type: "Clothing",
+          value: "Red Panda T-Shirt",
+        },
+      ],
+      limit: 100,
+    });
+    const ears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Ear",
+          value: "Red Panda",
+        },
+      ],
+      limit: 35,
+    });
+    const headgears = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Headgear",
+          value: "Red Panda Beanie",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Red Panda Mask",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Red Panda Baseball Cap",
+        },
+        {
+          trait_type: "Headgear",
+          value: "Red Panda Headband",
+        },
+      ],
+      limit: 100,
+    });
+    const necks = await searchTokens({
+      contracts: [Collection.AZUKI],
+      attributes: [
+        {
+          trait_type: "Neck",
+          value: "Red Panda Headphones",
+        },
+      ],
+      limit: 52,
+    });
 
-    return sort(tokens);
+    return {
+      tokens: sort([
+        ...clothings.tokens,
+        ...ears.tokens,
+        ...headgears.tokens,
+        ...necks.tokens,
+      ]),
+    };
   },
 };
