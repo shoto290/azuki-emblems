@@ -1,9 +1,11 @@
-import { Point } from "@/lib/emblems/types";
+import { Emblem, Point } from "@/lib/emblems/types";
 import { Token } from "../token/types";
-import { azukiEmblems } from "@/lib/emblems/constants";
+import { emblems } from "@/lib/emblems/constants";
+import { EmblemType } from "@/lib/emblems/enums";
 
-export function getValidPoints(token: Token) {
-  const points = azukiEmblems.reduce((acc, emblem) => {
+export function getValidPoints(token: Token, type: EmblemType) {
+  const emblems = _getEmblemsByType(type);
+  const points = emblems.reduce((acc, emblem) => {
     return [...acc, ...emblem.points];
   }, [] as Point[]);
 
@@ -57,6 +59,10 @@ export function getValidPoints(token: Token) {
     }
     return acc;
   }, [] as Point[]);
+}
+
+function _getEmblemsByType(type: EmblemType): Emblem[] {
+  return emblems.find((emblem) => emblem.type === type)?.emblems || [];
 }
 
 function _getPointWithMultiple(

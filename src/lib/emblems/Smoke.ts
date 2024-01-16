@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Smoke: Emblem = {
@@ -7,6 +7,7 @@ export const Smoke: Emblem = {
   name: "Smoke",
   contracts: [Collection.AZUKI],
   icon: "/images/smoke-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Own one Azuki with the Smoke Trait",

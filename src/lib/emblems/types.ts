@@ -1,4 +1,5 @@
 import { Attribute, Nft } from "@/lib/services/token/types";
+import { EmblemType } from "./enums";
 
 export interface Condition {
   attributes?: Attribute[];
@@ -20,5 +21,6 @@ export interface Emblem {
   contracts: string[];
   icon: string;
   points: Point[];
+  type: EmblemType;
   getTokens: () => Promise<Nft[]>;
 }

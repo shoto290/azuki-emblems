@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { sort } from "./sort";
 import { Emblem } from "./types";
 
@@ -8,6 +8,7 @@ export const Water: Emblem = {
   name: "Water",
   contracts: [Collection.AZUKI],
   icon: "/images/water-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Water Orb Offhand",

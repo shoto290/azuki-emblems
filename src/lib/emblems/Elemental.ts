@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Elemental: Emblem = {
@@ -7,6 +7,7 @@ export const Elemental: Emblem = {
   name: "Elemental",
   contracts: [Collection.ELEMENTAL],
   icon: "/images/elemental-emblem.webp",
+  type: EmblemType.ELEMENTAL,
   points: [
     {
       description: "Own one Elemental",

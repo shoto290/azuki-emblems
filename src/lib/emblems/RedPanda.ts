@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { sort } from "./sort";
 import { Emblem } from "./types";
 
@@ -8,6 +8,7 @@ export const RedPanda: Emblem = {
   name: "Red Panda",
   contracts: [Collection.AZUKI],
   icon: "/images/red-panda-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Red Panda trait",

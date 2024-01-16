@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Spirit: Emblem = {
@@ -7,6 +7,7 @@ export const Spirit: Emblem = {
   name: "Spirit",
   contracts: [Collection.AZUKI],
   icon: "/images/spirit-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Spirit Type",

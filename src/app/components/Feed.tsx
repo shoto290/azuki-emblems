@@ -30,6 +30,7 @@ export default function Feed() {
             token={collection.token}
             market={collection.market}
             points={selectedEmblem.points}
+            emblemsType={selectedEmblem.type}
           />
         ))}
       </div>

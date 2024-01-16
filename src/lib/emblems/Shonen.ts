@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Shonen: Emblem = {
@@ -7,6 +7,7 @@ export const Shonen: Emblem = {
   name: "Shonen",
   contracts: [Collection.ELEMENTAL],
   icon: "/images/shonen-emblem.webp",
+  type: EmblemType.ELEMENTAL,
   points: [
     {
       description: "Own one Elemental of a Kid subtype",

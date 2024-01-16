@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Azuki: Emblem = {
@@ -7,6 +7,7 @@ export const Azuki: Emblem = {
   name: "Azuki",
   contracts: [Collection.AZUKI],
   icon: "/images/azuki-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Own 1 Azuki NFT",

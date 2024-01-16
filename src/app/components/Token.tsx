@@ -9,14 +9,21 @@ import {
 import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
 import TokenPointsBadge from "./TokenPointsBadge";
+import { EmblemType } from "@/lib/emblems/enums";
 
 interface TokenProps {
   token: Token;
   market: Market;
   points: Point[];
+  emblemsType: EmblemType;
 }
 
-export default function Token({ token, market, points }: TokenProps) {
+export default function Token({
+  token,
+  market,
+  points,
+  emblemsType,
+}: TokenProps) {
   return (
     <div
       onClick={() => {
@@ -37,7 +44,11 @@ export default function Token({ token, market, points }: TokenProps) {
         className="flex w-full justify-end"
       >
         <div className="absolute mt-1 mr-2">
-          <TokenPointsBadge token={token} points={points} />
+          <TokenPointsBadge
+            token={token}
+            points={points}
+            emblemsType={emblemsType}
+          />
         </div>
         <img
           className="rounded-md"

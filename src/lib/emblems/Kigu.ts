@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Kigu: Emblem = {
@@ -7,6 +7,7 @@ export const Kigu: Emblem = {
   name: "Kigu",
   contracts: [Collection.AZUKI],
   icon: "/images/kigu-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Standard Kigurumi clothing",

@@ -9,14 +9,20 @@ import {
   TooltipTrigger,
 } from "@/lib/ui/components/ui/tooltip";
 import { TooltipPoints } from "./TooltipPoints";
+import { EmblemType } from "@/lib/emblems/enums";
 
 interface TokenBadgeProps {
   token: Token;
   points: Point[];
+  emblemsType: EmblemType;
 }
 
-export default function TokenPointsBadge({ token, points }: TokenBadgeProps) {
-  const validPoints = getValidPoints(token);
+export default function TokenPointsBadge({
+  token,
+  points,
+  emblemsType,
+}: TokenBadgeProps) {
+  const validPoints = getValidPoints(token, emblemsType);
   const total = validPoints.reduce((acc, point) => acc + point.value, 0);
 
   if (total === 0) {

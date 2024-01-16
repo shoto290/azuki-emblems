@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Beanz: Emblem = {
@@ -7,6 +7,7 @@ export const Beanz: Emblem = {
   name: "Beanz",
   contracts: [Collection.BEANZ],
   icon: "/images/beanz-emblem.webp",
+  type: EmblemType.BEANZ,
   points: [
     {
       description: "Own one Beanz",

@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Butterfly: Emblem = {
@@ -7,6 +7,7 @@ export const Butterfly: Emblem = {
   name: "Butterfly",
   contracts: [Collection.AZUKI],
   icon: "/images/butterfly-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Own one Azuki with the Butterfly Trait",

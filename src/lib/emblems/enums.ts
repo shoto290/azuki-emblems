@@ -28,3 +28,9 @@ export enum EmblemId {
   SHONEN = "shonen",
   ANIMAL = "animal",
 }
+
+export enum EmblemType {
+  AZUKI = "azuki",
+  BEANZ = "beanz",
+  ELEMENTAL = "elemental",
+}

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function TokenSkeleton() {
   return (
     <div className="w-full flex gap-2 flex-col items-center p-2">

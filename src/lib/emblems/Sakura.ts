@@ -1,5 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
-import { Collection, EmblemId } from "./enums";
+import { Collection, EmblemId, EmblemType } from "./enums";
 import { Emblem } from "./types";
 
 export const Sakura: Emblem = {
@@ -7,6 +7,7 @@ export const Sakura: Emblem = {
   name: "Sakura",
   contracts: [Collection.AZUKI],
   icon: "/images/sakura-emblem.webp",
+  type: EmblemType.AZUKI,
   points: [
     {
       description: "Own one Azuki with the Sakura Trait",
