@@ -45,3 +45,24 @@ export const emblems = [
   Animal,
   Shonen,
 ];
+
+export const azukiEmblems = [
+  Azuki,
+  Gold,
+  Spirit,
+  Frog,
+  RedPanda,
+  Cat,
+  Sloth,
+  Fireflies,
+  Butterfly,
+  FoxFire,
+  Smoke,
+  Sakura,
+  Lightning,
+  Earth,
+  Fire,
+  Water,
+  Kigu,
+  Duality,
+];

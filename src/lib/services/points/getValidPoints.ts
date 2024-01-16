@@ -1,7 +1,12 @@
 import { Point } from "@/lib/emblems/types";
 import { Token } from "../token/types";
+import { azukiEmblems } from "@/lib/emblems/constants";
 
-export function getValidPoints(token: Token, points: Point[]) {
+export function getValidPoints(token: Token) {
+  const points = azukiEmblems.reduce((acc, emblem) => {
+    return [...acc, ...emblem.points];
+  }, [] as Point[]);
+
   return points.reduce((acc, point) => {
     if (!point.conditions) return acc;
     if (point.conditions.length === 0) return [...acc, point];

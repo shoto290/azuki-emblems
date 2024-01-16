@@ -16,7 +16,7 @@ interface TokenBadgeProps {
 }
 
 export default function TokenPointsBadge({ token, points }: TokenBadgeProps) {
-  const validPoints = getValidPoints(token, points);
+  const validPoints = getValidPoints(token);
   if (validPoints.length > 1) {
     console.log(validPoints);
   }
