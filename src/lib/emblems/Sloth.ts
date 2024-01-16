@@ -10,20 +10,107 @@ export const Sloth: Emblem = {
   icon: "/images/sloth-emblem.webp",
   points: [
     {
-      description: "1 Sloth trait",
+      description: "Sloth trait",
       value: 100,
-    },
-    {
-      description: "2 Sloth trait",
-      value: 400,
-    },
-    {
-      description: "3 Sloth trait",
-      value: 1000,
-    },
-    {
-      description: "4 Sloth trait",
-      value: 12000,
+      multiples: [400, 1000, 12000],
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Sloth Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth Yukata",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth Hoodie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth Kimono",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Sloth T-Shirt",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Ear",
+              value: "Sloth",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Sloth Beanie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Sloth Mask",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Sloth Baseball Cap",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Sloth Headband",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Neck",
+              value: "Sloth Headphones",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

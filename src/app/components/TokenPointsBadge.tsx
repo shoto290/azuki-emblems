@@ -1,5 +1,5 @@
 import { Point } from "@/lib/emblems/types";
-import { checkValidPoints } from "@/lib/services/points/checkValidPoints";
+import { getValidPoints } from "@/lib/services/points/getValidPoints";
 import { Token } from "@/lib/services/token/types";
 import { Badge } from "@/lib/ui/components/ui/badge";
 import {
@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/lib/ui/components/ui/tooltip";
+import { TooltipPoints } from "./TooltipPoints";
 
 interface TokenBadgeProps {
   token: Token;
@@ -15,7 +16,10 @@ interface TokenBadgeProps {
 }
 
 export default function TokenPointsBadge({ token, points }: TokenBadgeProps) {
-  const validPoints = checkValidPoints(token, points);
+  const validPoints = getValidPoints(token, points);
+  if (validPoints.length > 1) {
+    console.log(validPoints);
+  }
   const total = validPoints.reduce((acc, point) => acc + point.value, 0);
 
   if (total === 0) {
@@ -29,14 +33,7 @@ export default function TokenPointsBadge({ token, points }: TokenBadgeProps) {
           <Badge variant="secondary">+{total}</Badge>
         </TooltipTrigger>
         <TooltipContent className="flex flex-col gap-3">
-          {validPoints.map((point) => (
-            <div key={point.description}>
-              <p className="font-bold">{point.description}</p>
-              <p className="font-light">
-                +{point.value} points {point.infinite && "each"}
-              </p>
-            </div>
-          ))}
+          <TooltipPoints points={validPoints} />
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

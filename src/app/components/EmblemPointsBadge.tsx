@@ -6,6 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/lib/ui/components/ui/tooltip";
+import { TooltipPoints } from "./TooltipPoints";
 
 interface PointsBadgeProps {
   points: Point[];
@@ -19,14 +20,7 @@ export default function EmblemPointsBadge({ points }: PointsBadgeProps) {
           <Badge variant="default">?</Badge>
         </TooltipTrigger>
         <TooltipContent className="flex flex-col gap-3">
-          {points.map((point) => (
-            <div key={point.description}>
-              <p className="font-bold">{point.description}</p>
-              <p className="font-light">
-                +{point.value} points {point.infinite && "each"}
-              </p>
-            </div>
-          ))}
+          <TooltipPoints points={points} />
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

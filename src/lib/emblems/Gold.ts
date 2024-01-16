@@ -10,16 +10,203 @@ export const Gold: Emblem = {
   icon: "/images/gold-emblem.webp",
   points: [
     {
-      description: "1 Gold Trait",
+      description: "Gold Trait",
       value: 1000,
-    },
-    {
-      description: "2  Gold Traits",
-      value: 4000,
-    },
-    {
-      description: "3  Gold Traits",
-      value: 10000,
+      multiples: [4000, 10000],
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Cat Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Sloth Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Red Panda Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Frog Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Neck",
+              value: "Golden Headphones",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Zanbato",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Katana",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Sheathed Katana",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Monkey King Staff",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Bat",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Ticket",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Umbrella",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Fishing Rod",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Shinai",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Shuriken",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Hook Sword",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Monk Staff",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Skateboard",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Fan",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Floorsweeper",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Guitar",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Kanabo",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Boombox",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Golden Bean",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

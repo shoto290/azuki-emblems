@@ -10,20 +10,107 @@ export const Cat: Emblem = {
   icon: "/images/cat-emblem.webp",
   points: [
     {
-      description: "1 Cat trait",
+      description: "Cat trait",
       value: 100,
-    },
-    {
-      description: "2 Cat trait",
-      value: 400,
-    },
-    {
-      description: "3 Cat trait",
-      value: 1000,
-    },
-    {
-      description: "4 Cat trait",
-      value: 12000,
+      multiples: [400, 1000, 12000],
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Cat Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat Yukata",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat Hoodie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat Kimono",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Cat T-Shirt",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Ear",
+              value: "Cat",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Cat Beanie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Cat Mask",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Cat Baseball Cap",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Cat Headband",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Neck",
+              value: "Cat Headphones",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

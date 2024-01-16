@@ -10,20 +10,107 @@ export const Frog: Emblem = {
   icon: "/images/frog-emblem.webp",
   points: [
     {
-      description: "1 Frog trait",
+      description: "Frog trait",
       value: 100,
-    },
-    {
-      description: "2 Frog trait",
-      value: 400,
-    },
-    {
-      description: "3 Frog trait",
-      value: 1000,
-    },
-    {
-      description: "4 Frog trait",
-      value: 12000,
+      multiples: [400, 1000, 12000],
+      conditions: [
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Golden Frog Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog Kigurumi",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog Yukata",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog Hoodie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog Kimono",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Clothing",
+              value: "Frog T-Shirt",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Ear",
+              value: "Frog",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Frog Beanie",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Frog Mask",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Frog Baseball Cap",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Headgear",
+              value: "Frog Headband",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Neck",
+              value: "Frog Headphones",
+            },
+          ],
+        },
+      ],
     },
   ],
   getTokens: async () => {

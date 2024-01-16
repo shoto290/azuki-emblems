@@ -1,7 +1,7 @@
 import { Point } from "@/lib/emblems/types";
 import { Token } from "../token/types";
 
-export function checkValidPoints(token: Token, points: Point[]) {
+export function getValidPoints(token: Token, points: Point[]) {
   return points.reduce((acc, point) => {
     if (!point.conditions) return acc;
     if (point.conditions.length === 0) return [...acc, point];
@@ -34,8 +34,33 @@ export function checkValidPoints(token: Token, points: Point[]) {
     }
 
     if (validCondition >= 1) {
-      return [...acc, point];
+      return [
+        ...acc,
+        {
+          ...point,
+          value: point.multiples
+            ? _getPointWithMultiple(
+                point.value,
+                point.multiples,
+                validCondition
+              )
+            : point.value,
+          multiples: undefined,
+          description: `${validCondition} ${point.description}`,
+        },
+      ];
     }
     return acc;
   }, [] as Point[]);
+}
+
+function _getPointWithMultiple(
+  value: number,
+  multiples: number[],
+  validCondition: number
+) {
+  if (validCondition === 1) {
+    return value;
+  }
+  return multiples[validCondition - 2];
 }

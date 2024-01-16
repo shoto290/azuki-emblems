@@ -11,6 +11,7 @@ export interface Point {
   value: number;
   infinite?: boolean;
   conditions?: Condition[];
+  multiples?: number[];
 }
 
 export interface Emblem {
