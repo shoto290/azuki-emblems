@@ -11,6 +11,8 @@ interface SearchTokensOptions {
   attributes?: Attribute[];
   limit?: number;
   continuation?: string;
+  tokens?: string[];
+  collection?: string;
 }
 
 export default async function searchTokens(
@@ -19,9 +21,15 @@ export default async function searchTokens(
   const response = await ky(
     `https://api.reservoir.tools/tokens/v7?includeAttributes=true&limit=${
       options.limit || 20
-    }&collection=${options.contracts?.join("&contract=")}${formatAttributes(
-      options.attributes
-    )}${options.continuation ? `&continuation=${options.continuation}` : ""}`,
+    }${
+      options.contracts
+        ? `&collection=${options.contracts?.join(
+            "&contract="
+          )}${formatAttributes(options.attributes)}`
+        : ""
+    }${options.continuation ? `&continuation=${options.continuation}` : ""}${
+      options.tokens ? `&tokens[0]=${options.tokens.join("&tokens=")}` : ""
+    }${options.collection ? `&collection=${options.collection}` : ""}`,
     {
       headers: {
         "x-api-key": config.RESERVOIR_API_KEY,
