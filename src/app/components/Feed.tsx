@@ -2,14 +2,14 @@
 
 import useCollections from "../hooks/useCollections";
 import Filter from "./Filter";
-import Token from "./Token";
-import TokenSkeleton from "./TokenSkeleton";
 import Footer from "./Footer";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Button } from "@/lib/ui/components/ui/button";
-import { Loader2Icon } from "lucide-react";
+import RowFeed from "./RowFeed";
+import CaseFeed from "./CaseFeed";
+import { Grid2X2Icon, LayoutGrid, ListIcon } from "lucide-react";
 
 export default function Feed() {
   const {
@@ -20,10 +20,18 @@ export default function Feed() {
     setIsFetchingMore,
   } = useCollections();
   const { isMobile } = useBreakpoints();
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [display, setDisplay] = useState<"grid" | "row">("grid");
 
   useEffect(() => {
-    setOpen(false);
+    const display = localStorage.getItem("display") as "grid" | "row";
+    if (display) {
+      setDisplay(display);
+    }
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
   }, [selectedEmblem]);
 
   const handleScroll = async () => {
@@ -35,6 +43,12 @@ export default function Feed() {
     ) {
       setIsFetchingMore(true);
     }
+  };
+
+  const onClickDisplay = () => {
+    const newDisplay = display === "grid" ? "row" : "grid";
+    setDisplay(newDisplay);
+    localStorage.setItem("display", newDisplay);
   };
 
   useEffect(() => {
@@ -54,14 +68,14 @@ export default function Feed() {
           <Button
             variant="secondary"
             className=" w-full flex gap-1"
-            onClick={() => setOpen(!open)}
+            onClick={() => setIsOpen(!isOpen)}
           >
             <img className="h-6 w-6" src={selectedEmblem.icon} />
             {selectedEmblem.name}
           </Button>
         </div>
       )}
-      {isMobile && open && (
+      {isMobile && isOpen && (
         <div className="fixed left-0 w-full h-[calc(89dvh)] flex flex-col items-center p-2 z-10">
           {/* <ConnectKitButton /> */}
           <Filter
@@ -84,22 +98,25 @@ export default function Feed() {
       )}
       <div
         className={cn(
-          "w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-2",
-          !isMobile && "ml-[300px]"
+          "w-full flex flex-col gap-1",
+          !isMobile && "ml-[300px] mt-2"
         )}
       >
-        {!collections &&
-          [...Array(20)].map((_, i) => <TokenSkeleton key={i} />)}
-        {collections?.tokens.map((collection) => (
-          <Token
-            key={collection.token.tokenId}
-            token={collection.token}
-            market={collection.market}
-            points={selectedEmblem.points}
-            emblemsType={selectedEmblem.type}
-          />
-        ))}
-        {collections?.continuation && <TokenSkeleton />}
+        <div>
+          <Button
+            variant="outline"
+            className="flex gap-1"
+            onClick={onClickDisplay}
+          >
+            {display === "row" ? <LayoutGrid /> : <ListIcon />}
+          </Button>
+        </div>
+        {display === "grid" && (
+          <CaseFeed collections={collections} selectedEmblem={selectedEmblem} />
+        )}
+        {display === "row" && (
+          <RowFeed collections={collections} selectedEmblem={selectedEmblem} />
+        )}
       </div>
     </div>
   );
