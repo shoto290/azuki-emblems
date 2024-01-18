@@ -31,6 +31,11 @@ import { Tectonic } from "./Tectonic";
 import { Surge } from "./Surge";
 import { ElementalKigu } from "./ElementalKigu";
 import { ForceOfNature } from "./ForceOfNature";
+import { SpiritBeanz } from "./SpiritBeanz";
+import { SpecialSeedlings } from "./SpecialSeedlings";
+import { BeanzKigu } from "./BeanzKigu";
+import { GoldBeanz } from "./GoldBeanz";
+import { BeanzElements } from "./BeanzElements";
 
 export const azukiEmblems = [
   Azuki,
@@ -53,7 +58,14 @@ export const azukiEmblems = [
   Duality,
 ];
 
-export const beanzEmblems = [Beanz];
+export const beanzEmblems = [
+  Beanz,
+  GoldBeanz,
+  SpiritBeanz,
+  SpecialSeedlings,
+  BeanzElements,
+  BeanzKigu,
+];
 
 export const elementalEmblems = [
   Elemental,
