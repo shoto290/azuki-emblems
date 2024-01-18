@@ -50,7 +50,7 @@ export const ElementalKigu: Emblem = {
   ],
   getTokens: async (continuation?: string) => {
     return searchTokens({
-      contracts: [Collection.AZUKI],
+      contracts: [Collection.ELEMENTAL],
       attributes: [
         {
           trait_type: "Clothing",
