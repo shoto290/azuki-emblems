@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Spirit: Emblem = {
   id: EmblemId.SPIRIT,
@@ -33,8 +33,9 @@ export const Spirit: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.AZUKI],
       attributes: [
         {
@@ -42,7 +43,6 @@ export const Spirit: Emblem = {
           value: "Spirit",
         },
       ],
-      continuation,
     });
   },
 };

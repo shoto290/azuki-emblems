@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const FoxFire: Emblem = {
   id: EmblemId.FOX_FIRE,
@@ -24,8 +24,9 @@ export const FoxFire: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.AZUKI],
       attributes: [
         {
@@ -33,7 +34,6 @@ export const FoxFire: Emblem = {
           value: "Fox Fire",
         },
       ],
-      continuation,
     });
   },
 };

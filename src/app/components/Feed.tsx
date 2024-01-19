@@ -11,15 +11,17 @@ import RowFeed from "./RowFeed";
 import CaseFeed from "./CaseFeed";
 import { LayoutGrid, ListIcon } from "lucide-react";
 import { useFeed } from "../hooks/useFeed";
+import { FeedToolbar } from "./FeedToolbar";
 
 export default function Feed() {
   const { collections, setSelectedEmblem, selectedEmblem, setCollections } =
     useCollections();
-  const { display, onClickDisplay, setIsOpen, isOpen } = useFeed({
-    collections,
-    setCollections,
-    selectedEmblem,
-  });
+  const { display, onClickDisplay, setIsOpen, isOpen, tokenId, setTokenId } =
+    useFeed({
+      collections,
+      setCollections,
+      selectedEmblem,
+    });
   const { isMobile } = useBreakpoints();
 
   return (
@@ -63,15 +65,12 @@ export default function Feed() {
           !isMobile && "ml-[300px] mt-2"
         )}
       >
-        <div>
-          <Button
-            variant="outline"
-            className="flex gap-1"
-            onClick={onClickDisplay}
-          >
-            {display === "row" ? <LayoutGrid /> : <ListIcon />}
-          </Button>
-        </div>
+        <FeedToolbar
+          display={display}
+          onClickDisplay={onClickDisplay}
+          tokenId={tokenId}
+          setTokenId={setTokenId}
+        />
         {display === "grid" && (
           <CaseFeed collections={collections} selectedEmblem={selectedEmblem} />
         )}

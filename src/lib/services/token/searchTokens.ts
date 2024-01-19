@@ -13,6 +13,7 @@ interface SearchTokensOptions {
   continuation?: string;
   tokens?: string[];
   collection?: string;
+  name?: string;
 }
 
 export default async function searchTokens(
@@ -29,7 +30,9 @@ export default async function searchTokens(
         : ""
     }${options.continuation ? `&continuation=${options.continuation}` : ""}${
       options.tokens ? `&tokens[0]=${options.tokens.join("&tokens=")}` : ""
-    }${options.collection ? `&collection=${options.collection}` : ""}`,
+    }${options.collection ? `&collection=${options.collection}` : ""}${
+      options.name ? `&tokenName=${options.name}` : ""
+    }`,
     {
       headers: {
         "x-api-key": config.RESERVOIR_API_KEY,

@@ -362,6 +362,142 @@ export const ForceOfNature: Emblem = {
             },
           ],
         },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Lightning Blast",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Lightning Vortex",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Lightning Strike",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Stars",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Fire Vortex",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Lava",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Smolder",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Embers",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Water Vortex",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Underwater",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Rain",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Bubble",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Blizzard",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Growth",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Rock Storm",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Sand Vortex",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Special",
+              value: "Leaves",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -550,6 +686,74 @@ export const ForceOfNature: Emblem = {
         {
           trait_type: "Special",
           value: "Butterflies",
+        },
+        {
+          trait_type: "Special",
+          value: "Lightning Blast",
+        },
+        {
+          trait_type: "Special",
+          value: "Lightning Vortex",
+        },
+        {
+          trait_type: "Special",
+          value: "Lightning Strike",
+        },
+        {
+          trait_type: "Special",
+          value: "Stars",
+        },
+        {
+          trait_type: "Special",
+          value: "Growth",
+        },
+        {
+          trait_type: "Special",
+          value: "Rock Storm",
+        },
+        {
+          trait_type: "Special",
+          value: "Sand Vortex",
+        },
+        {
+          trait_type: "Special",
+          value: "Leaves",
+        },
+        {
+          trait_type: "Special",
+          value: "Water Vortex",
+        },
+        {
+          trait_type: "Special",
+          value: "Underwater",
+        },
+        {
+          trait_type: "Special",
+          value: "Rain",
+        },
+        {
+          trait_type: "Special",
+          value: "Bubble",
+        },
+        {
+          trait_type: "Special",
+          value: "Blizzard",
+        },
+        {
+          trait_type: "Special",
+          value: "Fire Vortex",
+        },
+        {
+          trait_type: "Special",
+          value: "Lava",
+        },
+        {
+          trait_type: "Special",
+          value: "Smolder",
+        },
+        {
+          trait_type: "Special",
+          value: "Embers",
         },
       ],
       limit: 100,

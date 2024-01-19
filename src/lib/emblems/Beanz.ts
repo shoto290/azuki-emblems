@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Beanz: Emblem = {
   id: EmblemId.BEANZ,
@@ -16,10 +16,10 @@ export const Beanz: Emblem = {
       conditions: [],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.BEANZ],
-      continuation,
     });
   },
 };

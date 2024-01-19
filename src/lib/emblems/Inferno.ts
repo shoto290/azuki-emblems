@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Inferno: Emblem = {
   id: EmblemId.INFERNO,
@@ -48,8 +48,9 @@ export const Inferno: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
         {
@@ -69,7 +70,6 @@ export const Inferno: Emblem = {
           value: "Embers",
         },
       ],
-      continuation,
     });
   },
 };

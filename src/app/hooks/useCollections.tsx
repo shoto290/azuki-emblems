@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Nft, SearchTokensResponse } from "@/lib/services/token/types";
+import { useState } from "react";
 import { Emblem } from "@/lib/emblems/types";
 import { Azuki } from "@/lib/emblems/Azuki";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
   azukiEmblems,
   beanzEmblems,

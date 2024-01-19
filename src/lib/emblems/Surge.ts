@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Surge: Emblem = {
   id: EmblemId.SURGE,
@@ -48,8 +48,9 @@ export const Surge: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
         {
@@ -69,7 +70,6 @@ export const Surge: Emblem = {
           value: "Stars",
         },
       ],
-      continuation,
     });
   },
 };

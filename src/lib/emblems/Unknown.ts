@@ -62,7 +62,7 @@ export const Unknown: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async () => {
     const simple = await searchTokens({
       tokens: [`${Collection.ELEMENTAL}:17319`],
       limit: 1,

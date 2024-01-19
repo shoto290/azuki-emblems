@@ -19,6 +19,11 @@ export interface Point {
   multiples?: number[];
 }
 
+export interface GetTokensParams {
+  continuation?: string;
+  name?: string;
+}
+
 export interface Emblem {
   id: string;
   name: string;
@@ -26,5 +31,5 @@ export interface Emblem {
   icon: string;
   points: Point[];
   type: EmblemType;
-  getTokens: (continuation?: string) => Promise<SearchTokensResponse>;
+  getTokens: (params: GetTokensParams) => Promise<SearchTokensResponse>;
 }

@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Shonen: Emblem = {
   id: EmblemId.SHONEN,
@@ -24,8 +24,9 @@ export const Shonen: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
         {
@@ -33,7 +34,6 @@ export const Shonen: Emblem = {
           value: "Kid",
         },
       ],
-      continuation,
     });
   },
 };

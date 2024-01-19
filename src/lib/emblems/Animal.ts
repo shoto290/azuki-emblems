@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Animal: Emblem = {
   id: EmblemId.ANIMAL,
@@ -48,7 +48,7 @@ export const Animal: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async ({ continuation }: GetTokensParams) => {
     return searchTokens({
       contracts: [Collection.ELEMENTAL],
       attributes: [

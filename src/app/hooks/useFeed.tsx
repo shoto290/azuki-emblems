@@ -1,4 +1,4 @@
-import { Emblem } from "@/lib/emblems/types";
+import { Emblem, GetTokensParams } from "@/lib/emblems/types";
 import { SearchTokensResponse } from "@/lib/services/token/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,8 +16,18 @@ export function useFeed({
 }: FeedProps) {
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [tokenId, setTokenId] = useState("");
   const [display, setDisplay] = useState<"grid" | "row">("grid");
   const { replace } = useRouter();
+
+  async function fetchTokens(): Promise<void> {
+    setIsFetchingMore(false);
+    setCollections(null);
+    const tokens = await selectedEmblem.getTokens({
+      name: tokenId !== "" ? tokenId : undefined,
+    });
+    setCollections(tokens);
+  }
 
   useEffect(() => {
     const display = localStorage.getItem("display") as "grid" | "row";
@@ -33,20 +43,24 @@ export function useFeed({
       setIsOpen(false);
     }
 
-    (async () => {
-      setIsFetchingMore(false);
-      setCollections(null);
-      const tokens = await selectedEmblem.getTokens();
-      setCollections(tokens);
-    })();
+    fetchTokens();
   }, [selectedEmblem]);
+
+  useEffect(() => {
+    if (tokenId !== "") {
+      fetchTokens();
+    }
+  }, [tokenId]);
 
   useEffect(() => {
     if (!isFetchingMore || !collections?.continuation) return;
 
     (async () => {
       if (!collections) return;
-      const tokens = await selectedEmblem.getTokens(collections.continuation);
+      const tokens = await selectedEmblem.getTokens({
+        continuation: collections.continuation,
+        name: tokenId !== "" ? tokenId : undefined,
+      });
 
       setCollections({
         tokens: [...collections.tokens, ...tokens.tokens],
@@ -87,5 +101,7 @@ export function useFeed({
     onClickDisplay,
     isOpen,
     setIsOpen,
+    tokenId,
+    setTokenId,
   };
 }

@@ -1,6 +1,6 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { Emblem } from "./types";
+import { Emblem, GetTokensParams } from "./types";
 
 export const Kigu: Emblem = {
   id: EmblemId.KIGU,
@@ -86,8 +86,9 @@ export const Kigu: Emblem = {
       ],
     },
   ],
-  getTokens: async (continuation?: string) => {
+  getTokens: async (params: GetTokensParams) => {
     return searchTokens({
+      ...params,
       contracts: [Collection.AZUKI],
       attributes: [
         {
@@ -123,7 +124,6 @@ export const Kigu: Emblem = {
           value: "Frog Kigurumi",
         },
       ],
-      continuation,
     });
   },
 };
