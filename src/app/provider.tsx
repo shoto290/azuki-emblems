@@ -3,11 +3,12 @@
 import { createConfig, mainnet, WagmiConfig } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { CollectionsProvider } from "./contexts/CollectionsContext";
+import config from "../config";
 
-const config = createConfig(
+const providerConfig = createConfig(
   getDefaultConfig({
-    alchemyId: process.env.ALCHEMY_ID,
-    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID || "",
+    alchemyId: config.ALCHEMY_ID,
+    walletConnectProjectId: config.WALLETCONNECT_PROJECT_ID || "",
     appName: "Garden Emblems",
     chains: [mainnet],
   })
@@ -15,7 +16,7 @@ const config = createConfig(
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
-    <WagmiConfig config={config}>
+    <WagmiConfig config={providerConfig}>
       <ConnectKitProvider theme="midnight">
         <CollectionsProvider>{children}</CollectionsProvider>
       </ConnectKitProvider>

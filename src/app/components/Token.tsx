@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
 import TokenPointsBadge from "./TokenPointsBadge";
 import { EmblemType } from "@/lib/emblems/enums";
+import { BuyNowButton } from "./BuyNowButton";
 
 interface TokenProps {
   token: Token;
@@ -74,15 +75,7 @@ export default function Token({
             </TooltipProvider>
           )}
         </p>
-        {market.floorAsk.price && (
-          <span className="flex gap-1 items-center">
-            <img className="h-[16px]" src={market.floorAsk.source.icon} />
-            <p>Ξ{market.floorAsk.price.amount.decimal}</p>
-            <p className="text-white/50">
-              (${Math.round(market.floorAsk.price.amount.usd)})
-            </p>
-          </span>
-        )}
+        {market.floorAsk.price && <BuyNowButton market={market} />}
       </div>
     </div>
   );

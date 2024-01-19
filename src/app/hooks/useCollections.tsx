@@ -19,37 +19,11 @@ export default function useCollections() {
     ...beanzEmblems,
     ...elementalEmblems,
   ].find(({ id }) => id === searchParams.get("emblem"));
-  const { replace } = useRouter();
   const [selectedEmblem, setSelectedEmblem] = useState<Emblem>(
     defaultEmblem || Azuki
   );
   const { collections, setCollections, isFetchingMore, setIsFetchingMore } =
     useCollectionsContext();
-
-  useEffect(() => {
-    replace(`?emblem=${selectedEmblem.id}`);
-
-    (async () => {
-      setCollections(null);
-      const tokens = await selectedEmblem.getTokens();
-      setCollections(tokens);
-    })();
-  }, [selectedEmblem]);
-
-  useEffect(() => {
-    if (!isFetchingMore || !collections?.continuation) return;
-
-    (async () => {
-      if (!collections) return;
-      const tokens = await selectedEmblem.getTokens(collections.continuation);
-
-      setCollections({
-        tokens: [...collections.tokens, ...tokens.tokens],
-        continuation: tokens.continuation,
-      });
-      setIsFetchingMore(false);
-    })();
-  }, [isFetchingMore]);
 
   return {
     collections,
@@ -57,5 +31,6 @@ export default function useCollections() {
     setSelectedEmblem,
     isFetchingMore,
     setIsFetchingMore,
+    setCollections,
   };
 }

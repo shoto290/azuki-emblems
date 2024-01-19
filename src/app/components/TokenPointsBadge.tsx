@@ -35,7 +35,7 @@ export default function TokenPointsBadge({
         <TooltipTrigger>
           <Badge variant="secondary">+{total}</Badge>
         </TooltipTrigger>
-        <TooltipContent className="flex flex-col gap-3">
+        <TooltipContent className="text-start flex flex-col gap-3">
           <TooltipPoints points={validPoints} />
         </TooltipContent>
       </Tooltip>

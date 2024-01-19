@@ -9,17 +9,15 @@ import { useEffect, useState } from "react";
 import { Button } from "@/lib/ui/components/ui/button";
 import RowFeed from "./RowFeed";
 import CaseFeed from "./CaseFeed";
-import { Grid2X2Icon, LayoutGrid, ListIcon } from "lucide-react";
+import { LayoutGrid, ListIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Feed() {
-  const {
-    collections,
-    setSelectedEmblem,
-    selectedEmblem,
-    isFetchingMore,
-    setIsFetchingMore,
-  } = useCollections();
+  const { collections, setSelectedEmblem, selectedEmblem, setCollections } =
+    useCollections();
+  const { replace } = useRouter();
   const { isMobile } = useBreakpoints();
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [display, setDisplay] = useState<"grid" | "row">("grid");
 
@@ -33,6 +31,32 @@ export default function Feed() {
   useEffect(() => {
     setIsOpen(false);
   }, [selectedEmblem]);
+
+  useEffect(() => {
+    replace(`?emblem=${selectedEmblem.id}`);
+
+    (async () => {
+      setIsFetchingMore(false);
+      setCollections(null);
+      const tokens = await selectedEmblem.getTokens();
+      setCollections(tokens);
+    })();
+  }, [selectedEmblem]);
+
+  useEffect(() => {
+    if (!isFetchingMore || !collections?.continuation) return;
+
+    (async () => {
+      if (!collections) return;
+      const tokens = await selectedEmblem.getTokens(collections.continuation);
+
+      setCollections({
+        tokens: [...collections.tokens, ...tokens.tokens],
+        continuation: tokens.continuation,
+      });
+      setIsFetchingMore(false);
+    })();
+  }, [isFetchingMore]);
 
   const handleScroll = async () => {
     if (isFetchingMore) return;
@@ -52,11 +76,8 @@ export default function Feed() {
   };
 
   useEffect(() => {
-    // Attachez l'écouteur d'événement de défilement lorsque le composant est monté.
     window.addEventListener("scroll", handleScroll);
-
     return () => {
-      // Retirez l'écouteur d'événement lorsque le composant est démonté pour éviter les fuites de mémoire.
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
