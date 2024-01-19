@@ -11,6 +11,8 @@ import { AlertCircleIcon } from "lucide-react";
 import TokenPointsBadge from "./TokenPointsBadge";
 import { EmblemType } from "@/lib/emblems/enums";
 import { BuyNowButton } from "./BuyNowButton";
+import { TokenPointsPerEth } from "./TokenPointsPerEth";
+import { getValidPoints } from "@/lib/services/points/getValidPoints";
 
 interface TokenProps {
   token: Token;
@@ -25,6 +27,9 @@ export default function Token({
   points,
   emblemsType,
 }: TokenProps) {
+  const validPoints = getValidPoints(token, emblemsType);
+  const total = validPoints.reduce((acc, point) => acc + point.value, 0);
+
   return (
     <div
       onClick={() => {
@@ -45,11 +50,14 @@ export default function Token({
         className="flex w-full justify-end"
       >
         <div className="absolute mt-1 mr-2">
-          <TokenPointsBadge
-            token={token}
-            points={points}
-            emblemsType={emblemsType}
-          />
+          <div className="flex gap-1">
+            <TokenPointsBadge
+              token={token}
+              points={points}
+              emblemsType={emblemsType}
+            />
+            <TokenPointsPerEth market={market} total={total} />
+          </div>
         </div>
         <img
           className="rounded-md"

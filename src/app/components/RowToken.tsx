@@ -15,6 +15,7 @@ import { cn, formatAddress } from "@/lib/utils";
 import { getValidPoints } from "@/lib/services/points/getValidPoints";
 import { Badge } from "@/lib/ui/components/ui/badge";
 import { BuyNowButton } from "./BuyNowButton";
+import { TokenPointsPerEth } from "./TokenPointsPerEth";
 
 interface TokenProps {
   token: Token;
@@ -66,11 +67,7 @@ export default function RowToken({
         )}
       </TableCell>
       <TableCell className="text-center">
-        <Badge>
-          {market.floorAsk.price?.amount.decimal
-            ? Math.floor(total / market.floorAsk.price?.amount.decimal)
-            : "Not listed"}
-        </Badge>
+        <TokenPointsPerEth market={market} total={total} />
       </TableCell>
       <TableCell>
         {market.floorAsk.price && <BuyNowButton market={market} />}

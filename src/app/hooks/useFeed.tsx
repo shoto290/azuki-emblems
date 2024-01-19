@@ -42,8 +42,6 @@ export function useFeed({
   }, [selectedEmblem]);
 
   useEffect(() => {
-    console.log("fetching more", isFetchingMore, collections);
-
     if (!isFetchingMore || !collections?.continuation) return;
 
     (async () => {
@@ -65,7 +63,6 @@ export function useFeed({
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      console.log("bottom");
       setIsFetchingMore(true);
     }
   };
