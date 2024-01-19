@@ -10,77 +10,17 @@ import { Button } from "@/lib/ui/components/ui/button";
 import RowFeed from "./RowFeed";
 import CaseFeed from "./CaseFeed";
 import { LayoutGrid, ListIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useFeed } from "../hooks/useFeed";
 
 export default function Feed() {
   const { collections, setSelectedEmblem, selectedEmblem, setCollections } =
     useCollections();
-  const { replace } = useRouter();
+  const { display, onClickDisplay, setIsOpen, isOpen } = useFeed({
+    collections,
+    setCollections,
+    selectedEmblem,
+  });
   const { isMobile } = useBreakpoints();
-  const [isFetchingMore, setIsFetchingMore] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [display, setDisplay] = useState<"grid" | "row">("grid");
-
-  useEffect(() => {
-    const display = localStorage.getItem("display") as "grid" | "row";
-    if (display) {
-      setDisplay(display);
-    }
-  }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [selectedEmblem]);
-
-  useEffect(() => {
-    replace(`?emblem=${selectedEmblem.id}`);
-
-    (async () => {
-      setIsFetchingMore(false);
-      setCollections(null);
-      const tokens = await selectedEmblem.getTokens();
-      setCollections(tokens);
-    })();
-  }, [selectedEmblem]);
-
-  useEffect(() => {
-    if (!isFetchingMore || !collections?.continuation) return;
-
-    (async () => {
-      if (!collections) return;
-      const tokens = await selectedEmblem.getTokens(collections.continuation);
-
-      setCollections({
-        tokens: [...collections.tokens, ...tokens.tokens],
-        continuation: tokens.continuation,
-      });
-      setIsFetchingMore(false);
-    })();
-  }, [isFetchingMore]);
-
-  const handleScroll = async () => {
-    if (isFetchingMore) return;
-
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
-      setIsFetchingMore(true);
-    }
-  };
-
-  const onClickDisplay = () => {
-    const newDisplay = display === "grid" ? "row" : "grid";
-    setDisplay(newDisplay);
-    localStorage.setItem("display", newDisplay);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div className={cn("flex flex-col md:flex-row gap-1")}>
