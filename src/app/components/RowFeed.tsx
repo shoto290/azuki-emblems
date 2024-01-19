@@ -28,7 +28,7 @@ export default function RowFeed({ collections, selectedEmblem }: RowFeedProps) {
             Tokens
           </TableHead>
           <TableHead className="text-center">Points/Eth</TableHead>
-          <TableHead className="text-center">Buy now</TableHead>
+          <TableHead>Buy now</TableHead>
           <TableHead className="text-center">Points</TableHead>
           {!isMobile && <TableHead className="text-right">Owner</TableHead>}
         </TableRow>
