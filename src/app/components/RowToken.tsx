@@ -45,16 +45,31 @@ export default function RowToken({
       }}
     >
       <TableCell className="flex gap-4 items-center font-medium">
-        <img
-          className="rounded-md"
-          src={token.image}
-          alt={token.name}
-          width={50}
-          height={50}
-        />
+        <TooltipProvider delayDuration={500} disableHoverableContent={true}>
+          <Tooltip>
+            <TooltipTrigger>
+              <img
+                className="rounded-md"
+                src={token.image}
+                alt={token.name}
+                width={50}
+                height={50}
+              />
+            </TooltipTrigger>
+            <TooltipContent className="p-0">
+              <img
+                className="rounded-md"
+                src={token.image}
+                alt={token.name}
+                width={260}
+                height={260}
+              />
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         {!isMobile && <p className="whitespace-nowrap">{token.name}</p>}
         {token.isFlagged && (
-          <TooltipProvider delayDuration={0}>
+          <TooltipProvider delayDuration={0} disableHoverableContent={true}>
             <Tooltip>
               <TooltipTrigger>
                 <AlertCircleIcon className="bg-red-500 h-4 w-4 rounded-full" />
