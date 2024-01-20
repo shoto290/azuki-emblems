@@ -46,6 +46,10 @@ export function useFeed({
       setIsOpen(false);
     }
 
+    if (tokenId !== "") {
+      setTokenId("");
+    }
+
     fetchTokens();
   }, [selectedEmblem]);
 
