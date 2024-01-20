@@ -190,7 +190,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Blue",
+              value: "Electrified Spicky - Blue",
             },
           ],
         },
@@ -198,7 +198,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Teal",
+              value: "Electrified Spicky - Teal",
             },
           ],
         },
@@ -206,7 +206,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Brown",
+              value: "Electrified Spicky - Brown",
             },
           ],
         },
@@ -214,7 +214,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Red",
+              value: "Electrified Spicky - Red",
             },
           ],
         },
@@ -222,7 +222,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Green",
+              value: "Electrified Spicky - Green",
             },
           ],
         },
@@ -230,7 +230,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Silver",
+              value: "Electrified Spicky - Silver",
             },
           ],
         },
@@ -238,7 +238,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Blue",
+              value: "Electrified Spicky - Dirty Blonde",
             },
           ],
         },
@@ -246,7 +246,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Dirty Blonde",
+              value: "Electrified Spicky - Black",
             },
           ],
         },
@@ -254,7 +254,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Black",
+              value: "Electrified Spicky - Indigo",
             },
           ],
         },
@@ -262,7 +262,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Indigo",
+              value: "Electrified Long - Blue",
             },
           ],
         },
@@ -270,7 +270,63 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Hair",
-              value: "Electrified - Black",
+              value: "Electrified Long - Teal",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Brown",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Red",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Green",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Silver",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Dirty Blonde",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Black",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Hair",
+              value: "Electrified Long - Indigo",
             },
           ],
         },
@@ -284,7 +340,7 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Offhand",
-              value: "Blade",
+              value: "Blade - Lightning",
             },
           ],
         },
@@ -292,7 +348,47 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Offhand",
-              value: "Fist",
+              value: "Blade - Fire",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Blade - Water",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Fire Fist",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Water Fist",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Earth Fist",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Lightning Fist",
             },
           ],
         },
@@ -308,7 +404,31 @@ export const ForceOfNature: Emblem = {
           attributes: [
             {
               trait_type: "Offhand",
-              value: "Fan",
+              value: "Fan - Lightning",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Fan - Fire",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Fan - Water",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Offhand",
+              value: "Fan - Earth",
             },
           ],
         },
@@ -599,47 +719,75 @@ export const ForceOfNature: Emblem = {
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Blue",
+          value: "Electrified Spicky - Blue",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Teal",
+          value: "Electrified Spicky - Teal",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Brown",
+          value: "Electrified Spicky - Brown",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Red",
+          value: "Electrified Spicky - Red",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Green",
+          value: "Electrified Spicky - Green",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Silver",
+          value: "Electrified Spicky - Silver",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Blue",
+          value: "Electrified Spicky - Dirty Blonde",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Dirty Blonde",
+          value: "Electrified Spicky - Black",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Black",
+          value: "Electrified Spicky - Indigo",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Indigo",
+          value: "Electrified Long - Blue",
         },
         {
           trait_type: "Hair",
-          value: "Electrified - Black",
+          value: "Electrified Long - Teal",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Brown",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Red",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Green",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Silver",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Dirty Blonde",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Black",
+        },
+        {
+          trait_type: "Hair",
+          value: "Electrified Long - Indigo",
         },
       ],
       limit: 100,
@@ -663,11 +811,31 @@ export const ForceOfNature: Emblem = {
       attributes: [
         {
           trait_type: "Offhand",
-          value: "Blade",
+          value: "Blade - Lightning",
         },
         {
           trait_type: "Offhand",
-          value: "Fist",
+          value: "Blade - Fire",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Blade - Water",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Fire Fist",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Water Fist",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Earth Fist",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Lightning Fist",
         },
         {
           trait_type: "Offhand",
@@ -675,7 +843,19 @@ export const ForceOfNature: Emblem = {
         },
         {
           trait_type: "Offhand",
-          value: "Fan",
+          value: "Fan - Lightning",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Fan - Fire",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Fan - Water",
+        },
+        {
+          trait_type: "Offhand",
+          value: "Fan - Earth",
         },
       ],
       limit: 100,
