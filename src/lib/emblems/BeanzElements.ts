@@ -17,7 +17,7 @@ export const BeanzElements: Emblem = {
         {
           attributes: [
             {
-              trait_type: "Type",
+              trait_type: "Eyes",
               value: "Fire - Blank",
             },
           ],
@@ -25,7 +25,7 @@ export const BeanzElements: Emblem = {
         {
           attributes: [
             {
-              trait_type: "Type",
+              trait_type: "Eyes",
               value: "Fire",
             },
           ],
@@ -33,7 +33,7 @@ export const BeanzElements: Emblem = {
         {
           attributes: [
             {
-              trait_type: "Type",
+              trait_type: "Eyes",
               value: "Lightning",
             },
           ],
