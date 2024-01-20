@@ -454,6 +454,54 @@ export const ForceOfNature: Emblem = {
             },
           ],
         },
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Resolute",
+            },
+            {
+              trait_type: "Clothing",
+              value: "Water",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Resolute",
+            },
+            {
+              trait_type: "Clothing",
+              value: "Fire",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Resolute",
+            },
+            {
+              trait_type: "Clothing",
+              value: "Earth",
+            },
+          ],
+        },
+        {
+          attributes: [
+            {
+              trait_type: "Eyes",
+              value: "Resolute",
+            },
+            {
+              trait_type: "Clothing",
+              value: "Lightning",
+            },
+          ],
+        },
       ],
     },
     {
