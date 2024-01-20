@@ -47,9 +47,7 @@ export function useFeed({
   }, [selectedEmblem]);
 
   useEffect(() => {
-    if (tokenId !== "") {
-      fetchTokens();
-    }
+    fetchTokens();
   }, [tokenId]);
 
   useEffect(() => {

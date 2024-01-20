@@ -45,6 +45,18 @@ export const Inferno: Emblem = {
             },
           ],
         },
+        {
+          attributes: [
+            {
+              trait_type: "Domain",
+              value: "Fire",
+            },
+            {
+              trait_type: "Special",
+              value: "Butterflies",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -53,6 +65,14 @@ export const Inferno: Emblem = {
       ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
+        {
+          trait_type: "Domain",
+          value: "Fire",
+        },
+        {
+          trait_type: "Special",
+          value: "Butterflies",
+        },
         {
           trait_type: "Special",
           value: "Fire Vortex",

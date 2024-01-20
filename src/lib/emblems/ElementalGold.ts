@@ -51,7 +51,7 @@ export const ElementalGold: Emblem = {
           attributes: [
             {
               trait_type: "Clothing",
-              value: "Bathrode - Gold",
+              value: "Bathrobe - Gold",
             },
           ],
         },

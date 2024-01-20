@@ -16,20 +16,24 @@ export function getValidPoints(token: Token, type: EmblemType) {
     let validCondition = 0;
     for (const condition of point.conditions) {
       if (condition.attributes) {
+        let validAttribute = true;
         for (const attribute of condition.attributes) {
           if (
-            token.attributes.find((tokenAttribute) => {
+            !token.attributes.find((tokenAttribute) => {
               if (tokenAttribute.key === attribute.trait_type) {
                 if (tokenAttribute.value === attribute.value) {
                   return true;
                 }
               }
-
               return false;
             })
           ) {
-            validCondition++;
+            validAttribute = false;
+            break;
           }
+        }
+        if (validAttribute) {
+          validCondition++;
         }
       }
 
@@ -53,7 +57,9 @@ export function getValidPoints(token: Token, type: EmblemType) {
               )
             : point.value,
           multiples: undefined,
-          description: `${validCondition} ${point.description}`,
+          description: `${point.multiples ? validCondition : ""} ${
+            point.description
+          }`,
         },
       ];
     }

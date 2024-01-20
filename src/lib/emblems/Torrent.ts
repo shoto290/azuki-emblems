@@ -53,6 +53,18 @@ export const Torrent: Emblem = {
             },
           ],
         },
+        {
+          attributes: [
+            {
+              trait_type: "Domain",
+              value: "Water",
+            },
+            {
+              trait_type: "Special",
+              value: "Butterflies",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -61,6 +73,14 @@ export const Torrent: Emblem = {
       ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
+        {
+          trait_type: "Domain",
+          value: "Water",
+        },
+        {
+          trait_type: "Special",
+          value: "Butterflies",
+        },
         {
           trait_type: "Special",
           value: "Water Vortex",

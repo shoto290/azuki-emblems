@@ -45,6 +45,18 @@ export const Tectonic: Emblem = {
             },
           ],
         },
+        {
+          attributes: [
+            {
+              trait_type: "Domain",
+              value: "Earth",
+            },
+            {
+              trait_type: "Special",
+              value: "Butterflies",
+            },
+          ],
+        },
       ],
     },
   ],
@@ -53,6 +65,14 @@ export const Tectonic: Emblem = {
       ...params,
       contracts: [Collection.ELEMENTAL],
       attributes: [
+        {
+          trait_type: "Domain",
+          value: "Earth",
+        },
+        {
+          trait_type: "Special",
+          value: "Butterflies",
+        },
         {
           trait_type: "Special",
           value: "Growth",
