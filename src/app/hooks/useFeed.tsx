@@ -17,6 +17,9 @@ export function useFeed({
   const [isFetchingMore, setIsFetchingMore] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [tokenId, setTokenId] = useState("");
+  const [awaitFetching, setAwaitFetching] = useState<
+    NodeJS.Timeout | undefined
+  >();
   const [display, setDisplay] = useState<"grid" | "row">("grid");
   const { replace } = useRouter();
 
@@ -47,7 +50,16 @@ export function useFeed({
   }, [selectedEmblem]);
 
   useEffect(() => {
-    fetchTokens();
+    if (awaitFetching) clearTimeout(awaitFetching);
+
+    const timeout = setTimeout(() => {
+      fetchTokens();
+      setAwaitFetching(undefined);
+    }, 1500);
+
+    setAwaitFetching((prev) => {
+      return timeout;
+    });
   }, [tokenId]);
 
   useEffect(() => {

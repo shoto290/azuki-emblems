@@ -16,12 +16,19 @@ import { FeedToolbar } from "./FeedToolbar";
 export default function Feed() {
   const { collections, setSelectedEmblem, selectedEmblem, setCollections } =
     useCollections();
-  const { display, onClickDisplay, setIsOpen, isOpen, tokenId, setTokenId } =
-    useFeed({
-      collections,
-      setCollections,
-      selectedEmblem,
-    });
+  const {
+    display,
+    onClickDisplay,
+    setIsOpen,
+    isOpen,
+    tokenId,
+    setTokenId,
+    isFetchingMore,
+  } = useFeed({
+    collections,
+    setCollections,
+    selectedEmblem,
+  });
   const { isMobile } = useBreakpoints();
 
   return (
@@ -72,10 +79,18 @@ export default function Feed() {
           setTokenId={setTokenId}
         />
         {display === "grid" && (
-          <CaseFeed collections={collections} selectedEmblem={selectedEmblem} />
+          <CaseFeed
+            collections={collections}
+            selectedEmblem={selectedEmblem}
+            isFetchingMore={isFetchingMore}
+          />
         )}
         {display === "row" && (
-          <RowFeed collections={collections} selectedEmblem={selectedEmblem} />
+          <RowFeed
+            collections={collections}
+            selectedEmblem={selectedEmblem}
+            isFetchingMore={isFetchingMore}
+          />
         )}
       </div>
     </div>

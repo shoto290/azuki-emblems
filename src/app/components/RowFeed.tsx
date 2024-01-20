@@ -15,9 +15,14 @@ import RowTokenSkeleton from "./RowTokenSkeleton";
 interface RowFeedProps {
   collections: SearchTokensResponse | null;
   selectedEmblem: Emblem;
+  isFetchingMore: boolean;
 }
 
-export default function RowFeed({ collections, selectedEmblem }: RowFeedProps) {
+export default function RowFeed({
+  collections,
+  selectedEmblem,
+  isFetchingMore,
+}: RowFeedProps) {
   const { isMobile } = useBreakpoints();
 
   return (
@@ -45,7 +50,7 @@ export default function RowFeed({ collections, selectedEmblem }: RowFeedProps) {
             emblemsType={selectedEmblem.type}
           />
         ))}
-        <RowTokenSkeleton />
+        {isFetchingMore && collections?.continuation && <RowTokenSkeleton />}
       </TableBody>
     </Table>
   );
