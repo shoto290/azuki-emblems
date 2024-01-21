@@ -62,7 +62,7 @@ export default function Filter({
                     <EmblemPointsBadge points={emblem.points} />
                   )}
                 </span>
-                {type === EmblemType.FAVORITE ? (
+                {type === EmblemType.FAVOURITES ? (
                   <StarFilledIcon
                     onClick={() => {
                       removeFavoriteEmblem(emblem.id);

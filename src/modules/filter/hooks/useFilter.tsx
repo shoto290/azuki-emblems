@@ -64,7 +64,7 @@ export function useFilter() {
         };
       },
       {
-        type: EmblemType.FAVORITE,
+        type: EmblemType.FAVOURITES,
         emblems: [],
       }
     );
