@@ -47,6 +47,7 @@ export const Fire: Emblem = {
             {
               trait_type: "Special",
               value: "Fire",
+              strict: true,
             },
           ],
         },

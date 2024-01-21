@@ -8,6 +8,7 @@ export interface Filter {
 export interface Attribute {
   trait_type: string;
   value: string;
+  strict?: boolean;
 }
 
 export interface AttributeDetail {

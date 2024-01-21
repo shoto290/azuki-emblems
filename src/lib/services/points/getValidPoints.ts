@@ -92,6 +92,14 @@ function _isValidAttribute(attribute: Attribute, token: Token): boolean {
     const conditionValue = attribute.value.toLowerCase();
 
     if (tokenTraitType === conditionTraitType) {
+      if (attribute.strict) {
+        if (tokenValue === conditionValue) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
       const escapedConditionValue = _escapeRegExp(conditionValue);
       const regex = new RegExp(`\\b${escapedConditionValue}\\b`, "i");
       if (regex.test(tokenValue) || tokenValue === conditionValue) {
