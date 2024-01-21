@@ -20,11 +20,7 @@ export function getValidPoints(token: Token, type: EmblemType) {
         for (const attribute of condition.attributes) {
           if (
             !token.attributes.find((tokenAttribute) => {
-              if (
-                tokenAttribute.key
-                  .toLowerCase()
-                  .includes(attribute.trait_type.toLowerCase())
-              ) {
+              if (tokenAttribute.key === attribute.trait_type) {
                 if (
                   tokenAttribute.value
                     .toLowerCase()
