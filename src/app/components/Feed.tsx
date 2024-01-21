@@ -31,6 +31,13 @@ export default function Feed() {
   });
   const { isMobile } = useBreakpoints();
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {});
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, []);
+
   return (
     <div className={cn("flex flex-col md:flex-row gap-1")}>
       {isMobile && (
@@ -78,20 +85,22 @@ export default function Feed() {
           tokenId={tokenId}
           setTokenId={setTokenId}
         />
-        {display === "grid" && (
-          <CaseFeed
-            collections={collections}
-            selectedEmblem={selectedEmblem}
-            isFetchingMore={isFetchingMore}
-          />
-        )}
-        {display === "row" && (
-          <RowFeed
-            collections={collections}
-            selectedEmblem={selectedEmblem}
-            isFetchingMore={isFetchingMore}
-          />
-        )}
+        <div className="w-full mt-10">
+          {display === "grid" && (
+            <CaseFeed
+              collections={collections}
+              selectedEmblem={selectedEmblem}
+              isFetchingMore={isFetchingMore}
+            />
+          )}
+          {display === "row" && (
+            <RowFeed
+              collections={collections}
+              selectedEmblem={selectedEmblem}
+              isFetchingMore={isFetchingMore}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

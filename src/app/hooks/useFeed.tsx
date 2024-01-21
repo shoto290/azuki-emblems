@@ -50,7 +50,7 @@ export function useFeed({
       setTokenId("");
     }
 
-    fetchTokens();
+    setIsFetchingMore(true);
   }, [selectedEmblem]);
 
   useEffect(() => {
@@ -88,8 +88,8 @@ export function useFeed({
     if (isFetchingMore) return;
 
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 10
     ) {
       setIsFetchingMore(true);
     }
