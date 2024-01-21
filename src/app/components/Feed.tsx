@@ -85,22 +85,20 @@ export default function Feed() {
           tokenId={tokenId}
           setTokenId={setTokenId}
         />
-        <div className="w-full mt-10">
-          {display === "grid" && (
-            <CaseFeed
-              collections={collections}
-              selectedEmblem={selectedEmblem}
-              isFetchingMore={isFetchingMore}
-            />
-          )}
-          {display === "row" && (
-            <RowFeed
-              collections={collections}
-              selectedEmblem={selectedEmblem}
-              isFetchingMore={isFetchingMore}
-            />
-          )}
-        </div>
+        {display === "grid" && (
+          <CaseFeed
+            collections={collections}
+            selectedEmblem={selectedEmblem}
+            isFetchingMore={isFetchingMore}
+          />
+        )}
+        {display === "row" && (
+          <RowFeed
+            collections={collections}
+            selectedEmblem={selectedEmblem}
+            isFetchingMore={isFetchingMore}
+          />
+        )}
       </div>
     </div>
   );

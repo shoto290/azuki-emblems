@@ -16,7 +16,7 @@ export function FeedToolbar({
   setTokenId,
 }: FeedToolbarProps) {
   return (
-    <div className="fixed bg-background top-0 pt-6 pb-2 z-10 w-full flex gap-2">
+    <div className="flex gap-2">
       <Button variant="outline" className="flex gap-1" onClick={onClickDisplay}>
         {display === "row" ? <LayoutGrid /> : <ListIcon />}
       </Button>
