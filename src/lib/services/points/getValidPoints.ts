@@ -1,5 +1,5 @@
 import { Emblem, Point } from "@/lib/emblems/types";
-import { Token } from "../token/types";
+import { Attribute, Token } from "../token/types";
 import { emblems } from "@/lib/emblems/constants";
 import { EmblemType } from "@/lib/emblems/enums";
 
@@ -15,37 +15,8 @@ export function getValidPoints(token: Token, type: EmblemType) {
 
     let validCondition = 0;
     for (const condition of point.conditions) {
-      if (condition.attributes) {
-        let validAttribute = true;
-        for (const attribute of condition.attributes) {
-          if (
-            !token.attributes.find((tokenAttribute) => {
-              if (tokenAttribute.key === attribute.trait_type) {
-                if (
-                  tokenAttribute.value
-                    .toLowerCase()
-                    .includes(attribute.value.toLowerCase())
-                ) {
-                  return true;
-                }
-              }
-              return false;
-            })
-          ) {
-            validAttribute = false;
-            break;
-          }
-        }
-        if (validAttribute) {
-          validCondition++;
-        }
-      }
-
-      if (condition.tokenId) {
-        if (Number(token.tokenId) === condition.tokenId) {
-          validCondition++;
-        }
-      }
+      validCondition += _checkAttributes(condition.attributes, token);
+      validCondition += _checkTokenId(condition.tokenId, token);
     }
 
     if (validCondition >= 1) {
@@ -84,4 +55,58 @@ function _getPointWithMultiple(
     return value;
   }
   return multiples[validCondition - 2];
+}
+
+function _checkAttributes(
+  attributes: Attribute[] | undefined,
+  token: Token
+): number {
+  let validCondition = 0;
+
+  if (attributes) {
+    let validAttribute = true;
+
+    for (const attribute of attributes) {
+      if (!_isValidAttribute(attribute, token)) {
+        validAttribute = false;
+        break;
+      }
+    }
+    if (validAttribute) {
+      validCondition++;
+    }
+  }
+
+  return validCondition;
+}
+
+function _escapeRegExp(string: string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function _isValidAttribute(attribute: Attribute, token: Token): boolean {
+  return !!token.attributes.find((tokenAttribute) => {
+    const tokenTraitType = tokenAttribute.key.toLowerCase();
+    const tokenValue = tokenAttribute.value.toLowerCase();
+    const conditionTraitType = attribute.trait_type.toLowerCase();
+    const conditionValue = attribute.value.toLowerCase();
+
+    if (tokenTraitType === conditionTraitType) {
+      const escapedConditionValue = _escapeRegExp(conditionValue);
+      const regex = new RegExp(`\\b${escapedConditionValue}\\b`, "i");
+      if (regex.test(tokenValue) || tokenValue === conditionValue) {
+        return true;
+      }
+    }
+    return false;
+  });
+}
+
+function _checkTokenId(tokenId: number | undefined, token: Token): number {
+  if (tokenId) {
+    if (Number(token.tokenId) === tokenId) {
+      return 1;
+    }
+  }
+  return 0;
 }
