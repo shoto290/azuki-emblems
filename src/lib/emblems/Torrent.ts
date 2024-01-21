@@ -41,7 +41,7 @@ export const Torrent: Emblem = {
           attributes: [
             {
               trait_type: "Special",
-              value: "Bubble",
+              value: "Bubbles",
             },
           ],
         },
@@ -95,7 +95,7 @@ export const Torrent: Emblem = {
         },
         {
           trait_type: "Special",
-          value: "Bubble",
+          value: "Bubbles",
         },
         {
           trait_type: "Special",

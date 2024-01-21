@@ -961,7 +961,7 @@ export const ForceOfNature: Emblem = {
         },
         {
           trait_type: "Special",
-          value: "Bubble",
+          value: "Bubbles",
         },
         {
           trait_type: "Special",
