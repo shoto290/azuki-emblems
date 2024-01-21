@@ -47,4 +47,5 @@ export enum EmblemType {
   AZUKI = "azuki",
   ELEMENTAL = "elemental",
   BEANZ = "beanz",
+  FAVORITE = "favorite",
 }

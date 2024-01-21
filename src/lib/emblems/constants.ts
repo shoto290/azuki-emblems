@@ -82,8 +82,8 @@ export const elementalEmblems = [
   Polarity,
 ];
 
-export const emblems: {
-  type: string;
+export const baseEmblems: {
+  type: EmblemType;
   emblems: Emblem[];
 }[] = [
   {

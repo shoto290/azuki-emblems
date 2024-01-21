@@ -1,6 +1,6 @@
 import { Emblem, Point } from "@/lib/emblems/types";
 import { Attribute, Token } from "../token/types";
-import { emblems } from "@/lib/emblems/constants";
+import { baseEmblems } from "@/lib/emblems/constants";
 import { EmblemType } from "@/lib/emblems/enums";
 
 export function getValidPoints(token: Token, type: EmblemType) {
@@ -43,7 +43,7 @@ export function getValidPoints(token: Token, type: EmblemType) {
 }
 
 function _getEmblemsByType(type: EmblemType): Emblem[] {
-  return emblems.find((emblem) => emblem.type === type)?.emblems || [];
+  return baseEmblems.find((emblem) => emblem.type === type)?.emblems || [];
 }
 
 function _getPointWithMultiple(

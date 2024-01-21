@@ -3,7 +3,7 @@ import {
   Nft,
   SearchTokensResponse,
 } from "@/lib/services/token/types";
-import { EmblemType } from "./enums";
+import { EmblemId, EmblemType } from "./enums";
 
 export interface Condition {
   attributes?: Attribute[];
@@ -25,7 +25,7 @@ export interface GetTokensParams {
 }
 
 export interface Emblem {
-  id: string;
+  id: EmblemId;
   name: string;
   contracts: string[];
   icon: string;

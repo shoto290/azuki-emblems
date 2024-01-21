@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -9,10 +8,12 @@ import {
   CommandItem,
 } from "@/lib/ui/components/ui/command";
 import { Emblem } from "@/lib/emblems/types";
-import { emblems } from "@/lib/emblems/constants";
-import { ChevronRightIcon } from "lucide-react";
 
-import EmblemPointsBadge from "./EmblemPointsBadge";
+import EmblemPointsBadge from "../../../app/components/EmblemPointsBadge";
+import { useFilter } from "../hooks/useFilter";
+import { EmblemType } from "@/lib/emblems/enums";
+import { cn } from "@/lib/utils";
+import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
 
 interface CollectionFilterProps {
   selectedEmblem: Emblem;
@@ -25,6 +26,8 @@ export default function Filter({
   setSelectedEmblem,
   loading,
 }: CollectionFilterProps) {
+  const { emblems, addFavoriteEmblem, removeFavoriteEmblem } = useFilter();
+
   return (
     <Command>
       <CommandInput placeholder="Search emblem..." className="h-9" />
@@ -40,7 +43,10 @@ export default function Filter({
                   if (loading) return;
                   setSelectedEmblem(emblem);
                 }}
-                className="flex gap-3 p-2"
+                className={cn(
+                  "flex gap-3 p-2",
+                  selectedEmblem.name === emblem.name ? "bg-primary" : ""
+                )}
               >
                 {emblem.icon && (
                   <img
@@ -56,14 +62,21 @@ export default function Filter({
                     <EmblemPointsBadge points={emblem.points} />
                   )}
                 </span>
-                <ChevronRightIcon
-                  className={cn(
-                    "ml-auto h-4 w-4",
-                    selectedEmblem.name === emblem.name
-                      ? "opacity-100"
-                      : "opacity-0"
-                  )}
-                />
+                {type === EmblemType.FAVORITE ? (
+                  <StarFilledIcon
+                    onClick={() => {
+                      removeFavoriteEmblem(emblem.id);
+                    }}
+                    className="h-4 w-4 ml-auto mr-2 text-yellow-500 hover:text-yellow-300 hover:cursor-pointer"
+                  />
+                ) : (
+                  <StarIcon
+                    onClick={() => {
+                      addFavoriteEmblem(emblem.id);
+                    }}
+                    className="h-4 w-4 ml-auto mr-2 text-secondary/20 hover:text-secondary/50 hover:cursor-pointer"
+                  />
+                )}
               </CommandItem>
             ))}
           </CommandGroup>

@@ -1,7 +1,7 @@
 "use client";
 
 import useCollections from "../hooks/useCollections";
-import Filter from "./Filter";
+import Filter from "../../modules/filter/components/Filter";
 import Footer from "./Footer";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { cn } from "@/lib/utils";

@@ -24,8 +24,6 @@ export function useFeed({
   const { replace } = useRouter();
 
   async function fetchTokens(): Promise<void> {
-    setIsFetchingMore(false);
-    setCollections(null);
     const tokens = await selectedEmblem.getTokens({
       name: tokenId !== "" ? tokenId : undefined,
     });
@@ -41,6 +39,9 @@ export function useFeed({
 
   useEffect(() => {
     replace(`?emblem=${selectedEmblem.id}`);
+
+    setIsFetchingMore(false);
+    setCollections(null);
 
     if (isOpen) {
       setIsOpen(false);
