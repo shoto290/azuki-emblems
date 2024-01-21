@@ -50,7 +50,7 @@ export function useFeed({
       setTokenId("");
     }
 
-    setIsFetchingMore(true);
+    fetchTokens();
   }, [selectedEmblem]);
 
   useEffect(() => {
