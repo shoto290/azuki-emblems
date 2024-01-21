@@ -34,17 +34,19 @@ export default function RowToken({
   const validPoints = getValidPoints(token, emblemsType);
   const total = validPoints.reduce((acc, point) => acc + point.value, 0);
 
+  function openTokenPage() {
+    window.open(
+      market.floorAsk.source?.url ||
+        `https://opensea.io/assets/ethereum/${token.contract}/${token.tokenId}`
+    );
+  }
+
   return (
-    <TableRow
-      className="hover:cursor-pointer"
-      onClick={() => {
-        window.open(
-          market.floorAsk.source?.url ||
-            `https://opensea.io/assets/ethereum/${token.contract}/${token.tokenId}`
-        );
-      }}
-    >
-      <TableCell className="flex gap-4 items-center font-medium">
+    <TableRow className="hover:cursor-pointer">
+      <TableCell
+        onClick={openTokenPage}
+        className="flex gap-4 items-center font-medium"
+      >
         <TooltipProvider delayDuration={500} disableHoverableContent={true}>
           <Tooltip>
             <TooltipTrigger>
@@ -81,13 +83,13 @@ export default function RowToken({
           </TooltipProvider>
         )}
       </TableCell>
-      <TableCell className="text-center">
+      <TableCell onClick={openTokenPage} className="text-center">
         <TokenPointsPerEth market={market} total={total} />
       </TableCell>
-      <TableCell>
+      <TableCell onClick={openTokenPage}>
         {market.floorAsk.price && <BuyNowButton market={market} />}
       </TableCell>
-      <TableCell className="text-center">
+      <TableCell onClick={openTokenPage} className="text-center">
         <TokenPointsBadge
           token={token}
           points={points}
@@ -96,7 +98,13 @@ export default function RowToken({
       </TableCell>
       {!isMobile && (
         <TableCell className="text-right">
-          {formatAddress(token.owner)}
+          <a
+            className="hover:underline"
+            target="_blank"
+            href={`https://www.azuki.com/collector/${token.owner}`}
+          >
+            {formatAddress(token.owner)}
+          </a>
         </TableCell>
       )}
     </TableRow>
