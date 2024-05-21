@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
+import Provider from "./provider";
 import { Metadata } from "next";
 import { WarningModal } from "./components/WarningModal";
 
@@ -31,7 +32,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="w-full max-w-[1400px] mt-4">{children}</div>
+        <Provider>
+          <div className="w-full max-w-[1400px] mt-4">{children}</div>
+        </Provider>
         <Analytics />
         <WarningModal />
       </body>
