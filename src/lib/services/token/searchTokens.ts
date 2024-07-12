@@ -1,9 +1,11 @@
 import config from "@/config";
+import { Collection } from "@/lib/emblems/enums";
 import {
   Attribute,
   Nft,
   SearchTokensResponse,
 } from "@/lib/services/token/types";
+import { getAnimePointsByTokenIds } from "@/services/animePoints";
 import ky from "ky";
 
 interface SearchTokensOptions {
@@ -41,6 +43,29 @@ export default async function searchTokens(
   );
 
   const collections = await response.json<{ tokens: Nft[] }>();
+  const points = await getAnimePointsByTokenIds(
+    options.contracts ? options.contracts[0] : Collection.AZUKI,
+    collections.tokens.map(({ token }) => token.tokenId)
+  );
+
+  collections.tokens = collections.tokens.map(
+    ({ market, token, updatedAt }, index) => {
+      return {
+        market,
+        token: {
+          ...token,
+          points: points[index] || {
+            gachaponRarityCount: [],
+            numCredits: 0,
+          },
+        },
+        updatedAt,
+      };
+    }
+  );
+
+  console.log(collections);
+
   return collections;
 }
 

@@ -1,6 +1,5 @@
 import searchTokens from "../services/token/searchTokens";
 import { Collection, EmblemId, EmblemType } from "./enums";
-import { sort } from "./sort";
 import { Emblem } from "./types";
 
 export const SpecialSeedlings: Emblem = {

@@ -1,5 +1,5 @@
 import { Point } from "@/lib/emblems/types";
-import { Market, Token } from "@/lib/services/token/types";
+import { Market } from "@/lib/services/token/types";
 import {
   Tooltip,
   TooltipContent,
@@ -8,14 +8,15 @@ import {
 } from "@/lib/ui/components/ui/tooltip";
 import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
-import TokenPointsBadge from "./TokenPointsBadge";
+import TokenScoreBadge from "./TokenScoreBadge";
 import { EmblemType } from "@/lib/emblems/enums";
 import { BuyNowButton } from "./BuyNowButton";
 import { TokenPointsPerEth } from "./TokenPointsPerEth";
 import { getValidPoints } from "@/lib/services/points/getValidPoints";
+import TokenPointsBadge from "./TokenPointsBadge";
 
 interface TokenProps {
-  token: Token;
+  token: any;
   market: Market;
   points: Point[];
   emblemsType: EmblemType;
@@ -51,6 +52,11 @@ export default function Token({
       >
         <div className="absolute mt-1 mr-2">
           <div className="flex gap-1">
+            <TokenScoreBadge
+              token={token}
+              points={points}
+              emblemsType={emblemsType}
+            />
             <TokenPointsBadge
               token={token}
               points={points}

@@ -1,3 +1,5 @@
+import { AnimePoints } from "@/services/animePoints";
+
 export interface Filter {
   contracts?: string[];
   attributes?: Attribute[];
@@ -88,6 +90,7 @@ export interface Token {
   };
   owner: string;
   mintStages: any[];
+  points: AnimePoints;
 }
 
 export interface FloorAsk {

@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "@/lib/ui/components/ui/tooltip";
 import { AlertCircleIcon } from "lucide-react";
-import TokenPointsBadge from "./TokenPointsBadge";
+import TokenScoreBadge from "./TokenScoreBadge";
 import { EmblemType } from "@/lib/emblems/enums";
 import { TableCell, TableRow } from "@/lib/ui/components/ui/table";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
@@ -16,6 +16,7 @@ import { getValidPoints } from "@/lib/services/points/getValidPoints";
 import { Badge } from "@/lib/ui/components/ui/badge";
 import { BuyNowButton } from "./BuyNowButton";
 import { TokenPointsPerEth } from "./TokenPointsPerEth";
+import TokenPointsBadge from "./TokenPointsBadge";
 
 interface TokenProps {
   token: Token;
@@ -91,6 +92,13 @@ export default function RowToken({
       </TableCell>
       <TableCell onClick={openTokenPage} className="text-center">
         <TokenPointsBadge
+          token={token}
+          points={points}
+          emblemsType={emblemsType}
+        />
+      </TableCell>
+      <TableCell onClick={openTokenPage} className="text-center">
+        <TokenScoreBadge
           token={token}
           points={points}
           emblemsType={emblemsType}

@@ -34,6 +34,7 @@ export default function RowFeed({
           </TableHead>
           <TableHead className="text-center">Points/Eth</TableHead>
           <TableHead>Buy now</TableHead>
+          <TableHead className="text-center">Score</TableHead>
           <TableHead className="text-center">Points</TableHead>
           {!isMobile && <TableHead className="text-right">Owner</TableHead>}
         </TableRow>
