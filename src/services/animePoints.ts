@@ -19,9 +19,11 @@ export async function getAnimePointsByTokenIds(
   const promises = [];
   for (const tokenId of tokenIds) {
     promises.push(
-      getAnimePointsByTokenId(collection, tokenId).catch((error) =>
-        console.error(error)
-      )
+      getAnimePointsByTokenId(collection, tokenId)
+        .catch((error) => console.error(error))
+        .then(
+          (response) => response || { numCredits: 0, gachaponRarityCount: [] }
+        )
     );
   }
 
