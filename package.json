@@ -22,6 +22,7 @@
     "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
     "connectkit": "^1.6.0",
+    "ethers": "^6.13.2",
     "framer-motion": "^10.18.0",
     "ky": "^1.4.0",
     "lucide-react": "^0.309.0",
@@ -32,7 +33,7 @@
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^2.9.4",
-    "viem": "1.x",
+    "viem": "^2.21.10",
     "wagmi": "1.x",
     "zod": "^3.22.4"
   },

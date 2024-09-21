@@ -42,11 +42,33 @@ export default async function searchTokens(
     }
   );
 
+  // fetch all AzukiIds with unclaimed green bean
+  const greenBeanResponse = await fetch(`/greenbean/api`);
+  const data = await greenBeanResponse.json();
+  const unclaimedAzukiIds = data.indexForUnClaimedOGs;
+
+  // setup collections
   const collections = await response.json<{ tokens: Nft[] }>();
   const points = await getAnimePointsByTokenIds(
     options.contracts ? options.contracts[0] : Collection.AZUKI,
     collections.tokens.map(({ token }) => token.tokenId)
   );
+
+  // setup green bean status for Azuki only
+  if (options.contracts && options.contracts[0] === Collection.AZUKI) {
+    collections.tokens = collections.tokens.map(
+      ({ market, token, updatedAt }, index) => {
+        return {
+          market,
+          token: {
+            ...token,
+            isGreenBeanClaimed: !unclaimedAzukiIds.includes(parseInt(token.tokenId))
+          },
+          updatedAt,
+        };
+      }
+    );
+  }
 
   collections.tokens = collections.tokens.map(
     ({ market, token, updatedAt }, index) => {

@@ -8,6 +8,7 @@ import {
 } from "@/lib/ui/components/ui/tooltip";
 import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
+import TokenGreenBeanBadge from "./TokenGreenBeanBadge";
 import TokenScoreBadge from "./TokenScoreBadge";
 import { EmblemType } from "@/lib/emblems/enums";
 import { BuyNowButton } from "./BuyNowButton";
@@ -52,6 +53,11 @@ export default function Token({
       >
         <div className="absolute mt-1 mr-2">
           <div className="flex gap-1">
+            <TokenGreenBeanBadge
+              token={token}
+              points={points}
+              emblemsType={emblemsType}
+            />
             <TokenScoreBadge
               token={token}
               points={points}
