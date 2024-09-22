@@ -11,13 +11,12 @@ import {
 } from "@/lib/emblems/constants";
 import { useCollectionsContext } from "../contexts/CollectionsContext";
 
-export default function useCollections() {
-  const searchParams = useSearchParams();
+export default function useCollections(defaultEmblemName: string | null) {
   const defaultEmblem = [
     ...azukiEmblems,
     ...beanzEmblems,
     ...elementalEmblems,
-  ].find(({ id }) => id === searchParams.get("emblem"));
+  ].find(({ id }) => id === defaultEmblemName);
   const [selectedEmblem, setSelectedEmblem] = useState<Emblem>(
     defaultEmblem || Azuki
   );

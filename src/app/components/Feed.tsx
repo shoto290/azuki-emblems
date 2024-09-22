@@ -5,17 +5,19 @@ import Filter from "../../modules/filter/components/Filter";
 import Footer from "./Footer";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/lib/ui/components/ui/button";
 import RowFeed from "./RowFeed";
 import CaseFeed from "./CaseFeed";
-import { LayoutGrid, ListIcon } from "lucide-react";
 import { useFeed } from "../hooks/useFeed";
 import { FeedToolbar } from "./FeedToolbar";
+import { useSearchParams } from "next/navigation";
 
 export default function Feed() {
+  const searchParams = useSearchParams();
+
   const { collections, setSelectedEmblem, selectedEmblem, setCollections } =
-    useCollections();
+    useCollections(searchParams.get("emblem"));
   const {
     display,
     onClickDisplay,

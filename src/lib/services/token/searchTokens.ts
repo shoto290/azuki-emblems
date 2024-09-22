@@ -43,7 +43,7 @@ export default async function searchTokens(
   );
 
   // fetch all AzukiIds with unclaimed green bean
-  const greenBeanResponse = await fetch(`/greenbean/api`);
+  const greenBeanResponse = await fetch(`/api/greenbean`);
   const data = await greenBeanResponse.json();
   const unclaimedAzukiIds = data.indexForUnClaimedOGs;
 
@@ -62,7 +62,9 @@ export default async function searchTokens(
           market,
           token: {
             ...token,
-            isGreenBeanClaimed: !unclaimedAzukiIds.includes(parseInt(token.tokenId))
+            isGreenBeanClaimed: !unclaimedAzukiIds.includes(
+              parseInt(token.tokenId)
+            ),
           },
           updatedAt,
         };
