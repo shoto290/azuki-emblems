@@ -91,6 +91,7 @@ export interface Token {
   owner: string;
   mintStages: any[];
   points: AnimePoints;
+  isGreenBeanClaimed: boolean;
 }
 
 export interface FloorAsk {

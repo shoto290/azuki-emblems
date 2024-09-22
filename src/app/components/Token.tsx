@@ -8,12 +8,13 @@ import {
 } from "@/lib/ui/components/ui/tooltip";
 import { motion } from "framer-motion";
 import { AlertCircleIcon } from "lucide-react";
-import TokenScoreBadge from "./TokenScoreBadge";
+import TokenGreenBeanBadge from "./TokenGreenBeanBadge";
 import { EmblemType } from "@/lib/emblems/enums";
 import { BuyNowButton } from "./BuyNowButton";
 import { TokenPointsPerEth } from "./TokenPointsPerEth";
 import { getValidPoints } from "@/lib/services/points/getValidPoints";
 import TokenPointsBadge from "./TokenPointsBadge";
+import TokenScoreBadge from "./TokenScoreBadge";
 
 interface TokenProps {
   token: any;
@@ -50,20 +51,23 @@ export default function Token({
         }}
         className="flex w-full justify-end"
       >
-        <div className="absolute mt-1 mr-2">
-          <div className="flex gap-1">
-            <TokenScoreBadge
-              token={token}
-              points={points}
-              emblemsType={emblemsType}
-            />
-            <TokenPointsBadge
-              token={token}
-              points={points}
-              emblemsType={emblemsType}
-            />
-            <TokenPointsPerEth market={market} total={total} />
-          </div>
+        <div className="absolute mt-1 mr-2 flex gap-1">
+          <TokenGreenBeanBadge
+            token={token}
+            points={points}
+            emblemsType={emblemsType}
+          />
+          <TokenScoreBadge
+            token={token}
+            points={points}
+            emblemsType={emblemsType}
+          />
+          <TokenPointsBadge
+            token={token}
+            points={points}
+            emblemsType={emblemsType}
+          />
+          <TokenPointsPerEth market={market} total={total} />
         </div>
         <img
           className="rounded-md"
