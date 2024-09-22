@@ -17,6 +17,7 @@ import { Badge } from "@/lib/ui/components/ui/badge";
 import { BuyNowButton } from "./BuyNowButton";
 import { TokenPointsPerEth } from "./TokenPointsPerEth";
 import TokenPointsBadge from "./TokenPointsBadge";
+import TokenGreenBeanBadge from "./TokenGreenBeanBadge";
 
 interface TokenProps {
   token: Token;
@@ -70,7 +71,11 @@ export default function RowToken({
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        {!isMobile && <p className="whitespace-nowrap">{token.name}</p>}
+        {!isMobile && (
+          <p className="flex flex-row justify-center gap-1 whitespace-nowrap">
+            {token.name}
+          </p>
+        )}
         {token.isFlagged && (
           <TooltipProvider delayDuration={0} disableHoverableContent={true}>
             <Tooltip>
@@ -84,8 +89,16 @@ export default function RowToken({
           </TooltipProvider>
         )}
       </TableCell>
-      <TableCell onClick={openTokenPage} className="text-center">
+      <TableCell
+        onClick={openTokenPage}
+        className="text-center space-x-1 space-y-1"
+      >
         <TokenPointsPerEth market={market} total={total} />
+        <TokenGreenBeanBadge
+          token={token}
+          points={points}
+          emblemsType={emblemsType}
+        />
       </TableCell>
       <TableCell onClick={openTokenPage}>
         {market.floorAsk.price && <BuyNowButton market={market} />}

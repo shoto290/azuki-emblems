@@ -32,7 +32,9 @@ export default function GreenBeanChecker({ token }: TokenBadgeProps) {
         <TooltipTrigger>
           <Badge
             className={cn(
-              !isGreenBeanClaimed && "bg-[#74BBB3] hover:bg-[#619d96]"
+              isGreenBeanClaimed
+                ? "bg-red-200 hover:bg-red-300"
+                : "bg-[#74BBB3] hover:bg-[#619d96]"
             )}
             variant="secondary"
           >

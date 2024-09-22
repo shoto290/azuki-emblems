@@ -52,7 +52,8 @@ async function getAllGreenBeanNotClaimed(): Promise<boolean[]> {
 
     cache.set("allBeansClaimed", {
       value: isClaimedArray,
-      expiry: Date.now() + 1000 * 60 * 5,
+      // Cache for 1 minute
+      expiry: Date.now() + 1000 * 60,
     });
 
     return isClaimedArray as boolean[];

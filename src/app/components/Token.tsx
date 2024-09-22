@@ -14,6 +14,7 @@ import { BuyNowButton } from "./BuyNowButton";
 import { TokenPointsPerEth } from "./TokenPointsPerEth";
 import { getValidPoints } from "@/lib/services/points/getValidPoints";
 import TokenPointsBadge from "./TokenPointsBadge";
+import TokenScoreBadge from "./TokenScoreBadge";
 
 interface TokenProps {
   token: any;
@@ -52,6 +53,11 @@ export default function Token({
       >
         <div className="absolute mt-1 mr-2 flex gap-1">
           <TokenGreenBeanBadge
+            token={token}
+            points={points}
+            emblemsType={emblemsType}
+          />
+          <TokenScoreBadge
             token={token}
             points={points}
             emblemsType={emblemsType}
