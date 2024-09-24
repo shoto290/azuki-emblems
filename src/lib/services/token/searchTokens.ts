@@ -7,6 +7,7 @@ import {
 } from "@/lib/services/token/types";
 import { getAnimePointsByTokenIds } from "@/services/animePoints";
 import ky from "ky";
+import { getGreenBeanStatus } from "./getGreenBeanStatus";
 
 interface SearchTokensOptions {
   contracts?: string[];
@@ -42,13 +43,9 @@ export default async function searchTokens(
     }
   );
 
-  // fetch all AzukiIds with unclaimed green bean
-  const greenBeanResponse = await fetch(`/api/greenbean`);
-  const data = await greenBeanResponse.json();
-  const unclaimedAzukiIds = data.indexForUnClaimedOGs;
-
   // setup collections
   const collections = await response.json<{ tokens: Nft[] }>();
+  const greenBeanStatus = await getGreenBeanStatus(collections);
   const points = await getAnimePointsByTokenIds(
     options.contracts ? options.contracts[0] : Collection.AZUKI,
     collections.tokens.map(({ token }) => token.tokenId)
@@ -62,9 +59,7 @@ export default async function searchTokens(
           market,
           token: {
             ...token,
-            isGreenBeanClaimed: !unclaimedAzukiIds.includes(
-              parseInt(token.tokenId)
-            ),
+            isGreenBeanClaimed: !greenBeanStatus[token.tokenId],
           },
           updatedAt,
         };
@@ -87,8 +82,6 @@ export default async function searchTokens(
       };
     }
   );
-
-  console.log(collections);
 
   return collections;
 }

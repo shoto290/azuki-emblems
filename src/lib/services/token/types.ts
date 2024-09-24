@@ -136,3 +136,7 @@ export interface SearchTokensResponse {
   tokens: Nft[];
   continuation?: string;
 }
+
+export interface GreenBeanStatus {
+  [azukiId: string]: boolean;
+}
