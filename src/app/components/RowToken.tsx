@@ -39,7 +39,9 @@ export default function RowToken({
   function openTokenPage() {
     window.open(
       market.floorAsk.source?.url ||
-        `https://opensea.io/assets/ethereum/${token.contract}/${token.tokenId}`
+        `https://opensea.io/assets/ethereum/${token.contract}/${token.tokenId}`,
+      '_blank',
+      'noopener,noreferrer'
     );
   }
 
@@ -122,6 +124,7 @@ export default function RowToken({
           <a
             className="hover:underline"
             target="_blank"
+            rel="noopener noreferrer"
             href={`https://www.azuki.com/collector/${token.owner}`}
           >
             {formatAddress(token.owner)}
